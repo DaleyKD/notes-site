@@ -1,0 +1,38 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import NoteCard from '../../components/astro/NoteCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const allNotes = await getCollection('notes', (entry: CollectionEntry<'notes'>) => !entry.data.draft);
+const notes = allNotes.sort((a: CollectionEntry<'notes'>, b: CollectionEntry<'notes'>) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+
+<PageLayout title="Notes" description="All notes and essays — software engineering, architecture, faith, family, and what it means to do good work.">
+  <header class="mb-10">
+    <h1 class="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-3">
+      Notes
+    </h1>
+    <p class="text-neutral-600 dark:text-neutral-400">
+      {notes.length} {notes.length === 1 ? 'piece' : 'pieces'} — notes, essays, and things worth writing down.
+    </p>
+  </header>
+
+  <div>
+    {notes.length === 0 ? (
+      <p class="py-8 text-neutral-500 dark:text-neutral-400 text-sm">
+        Nothing published yet. Check back soon.
+      </p>
+    ) : (
+      notes.map((note) => (
+        <NoteCard
+          title={note.data.title}
+          description={note.data.description}
+          href={`/notes/${note.id.replace(/\.mdx?$/, '')}`}
+          publishedAt={note.data.publishedAt}
+          kind={note.data.kind}
+          tags={note.data.tags}
+        />
+      ))
+    )}
+  </div>
+</PageLayout>

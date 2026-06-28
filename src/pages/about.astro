@@ -1,0 +1,75 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PhotoLightbox from '../components/react/PhotoLightbox';
+---
+
+<PageLayout title="About" description="About Kyle Daley — software engineer, cloud architect, Christian, husband, and father of three.">
+
+  <!-- Photo + name block -->
+  <div class="flex flex-col sm:flex-row items-start gap-8 mb-12">
+    <PhotoLightbox
+      src="/daleykd.jpg"
+      alt="Kyle Daley"
+      imgClass="w-full h-full object-cover rounded-full"
+      wrapperClass="w-28 h-28 rounded-full shrink-0 ring-2 ring-neutral-200 dark:ring-neutral-700 overflow-hidden"
+      client:load
+    />
+    <div class="pt-1">
+      <h1 class="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-1">
+        Kyle Daley
+      </h1>
+      <p class="text-neutral-500 dark:text-neutral-400">
+        Software Engineer · Cloud Architect
+      </p>
+      <div class="flex items-center gap-4 mt-3">
+        <a
+          href="https://github.com/DaleyKD"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm font-medium text-brand-600 dark:text-brand-300 underline underline-offset-2 hover:text-brand-700 dark:hover:text-brand-200 transition-colors"
+        >
+          GitHub
+        </a>
+        <a
+          href="https://linkedin.com/in/daleykd"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm font-medium text-brand-600 dark:text-brand-300 underline underline-offset-2 hover:text-brand-700 dark:hover:text-brand-200 transition-colors"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bio -->
+  <div class="prose prose-neutral dark:prose-invert max-w-none prose-a:text-brand-600 dark:prose-a:text-brand-300">
+
+    <p>
+      I'm Kyle — a Christian, husband, and father of three. That ordering matters to me. What I do professionally doesn't define who I am, even though I've given a lot of myself to it over the years.
+    </p>
+
+    <p>
+      I've been writing software professionally for about twenty years. Most of that time has been spent on distributed systems, cloud infrastructure, and the kind of work that happens at the intersection of code and architecture. I've built teams, designed systems at scale, and made plenty of mistakes that taught me more than the wins did.
+    </p>
+
+    <p>
+      What I actually care about in engineering: simplicity. Not the lazy kind — the hard-won kind where you've looked at the complex version and chosen the simpler one on purpose. I've worked at enough places to know that the most expensive code is code nobody can understand anymore.
+    </p>
+
+    <p>
+      This site is my notebook. Not a blog in the traditional sense — more like a place to think out loud, to put things in writing so I can be wrong about them clearly. The work tends toward software engineering, distributed systems, cloud architecture, and leadership — but faith and family are at least as central as any of that. I don't separate them cleanly.
+    </p>
+
+    <h2>Outside the keyboard</h2>
+
+    <p>
+      I design PCBs for guitar effects pedals under the name <a href="https://www.delykpcb.com" target="_blank" rel="noopener noreferrer">delyk PCBs</a> — currently on hiatus, but it's the kind of hobby that doesn't really leave you. (The name? <em>delyk</em> is <em>Kyle D</em> backwards. I thought it was witty.) There's something deeply satisfying about designing a circuit, soldering it together, and making noise with it. If you're into guitar gear, take a look.
+    </p>
+
+    <p>
+      Guitar gear in general is a bit of an obsession. I make no apologies.
+    </p>
+
+  </div>
+</PageLayout>

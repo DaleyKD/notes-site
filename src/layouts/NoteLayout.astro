@@ -1,0 +1,78 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/astro/Header.astro';
+import Footer from '../components/astro/Footer.astro';
+import { readingTime } from '../lib/readingTime';
+
+interface Props {
+  title: string;
+  description: string;
+  publishedAt: Date;
+  updatedAt?: Date;
+  tags: string[];
+  kind: 'note' | 'essay';
+  rawContent: string;
+}
+
+const { title, description, publishedAt, updatedAt, tags, kind, rawContent } = Astro.props;
+
+const published = publishedAt.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const updated = updatedAt?.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const readTime = readingTime(rawContent);
+---
+
+<BaseLayout title={title} description={description} publishedAt={publishedAt} type="article">
+  <div class="flex flex-col min-h-screen">
+    <Header />
+    <main class="flex-1 mx-auto w-full max-w-3xl px-4 sm:px-6 py-12">
+      <article>
+        <!-- Header -->
+        <header class="mb-10">
+          <div class="flex items-center gap-2 text-sm mb-4">
+            <span class="capitalize text-neutral-500 dark:text-neutral-400">{kind}</span>
+            <span class="text-neutral-300 dark:text-neutral-600">·</span>
+            <time datetime={publishedAt.toISOString()} class="text-orange-700 dark:text-orange-400">{published}</time>
+            <span class="text-neutral-300 dark:text-neutral-600">·</span>
+            <span class="text-orange-700 dark:text-orange-400">{readTime}</span>
+          </div>
+          <h1 class="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-4">
+            {title}
+          </h1>
+          <p class="text-lg text-neutral-600 dark:text-neutral-300">{description}</p>
+          {tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 mt-4">
+              {tags.map((tag) => (
+                <span class="text-xs px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-300 font-medium">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </header>
+
+        <!-- Content -->
+        <div class="prose prose-neutral dark:prose-invert max-w-none prose-code:font-mono prose-pre:bg-neutral-950 prose-pre:border prose-pre:border-neutral-800">
+          <slot />
+        </div>
+
+        <!-- Footer meta -->
+        {updated && (
+          <p class="mt-12 pt-6 border-t border-neutral-200 dark:border-neutral-800 text-sm text-neutral-500 dark:text-neutral-400">
+            Last updated {updated}
+          </p>
+        )}
+      </article>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

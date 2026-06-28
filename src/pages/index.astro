@@ -1,0 +1,67 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import NoteCard from '../components/astro/NoteCard.astro';
+import PhotoLightbox from '../components/react/PhotoLightbox';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const allNotes = await getCollection('notes', (entry: CollectionEntry<'notes'>) => !entry.data.draft);
+const notes = allNotes
+  .sort((a: CollectionEntry<'notes'>, b: CollectionEntry<'notes'>) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 5);
+---
+
+<PageLayout title="Kyle Daley" description="Software engineering, cloud architecture, and occasional thoughts on life.">
+  <!-- Intro -->
+  <section class="mb-16">
+    <div class="flex items-center gap-4 mb-6">
+      <PhotoLightbox
+        src="/daleykd.jpg"
+        alt="Kyle Daley"
+        imgClass="w-full h-full object-cover rounded-full"
+        wrapperClass="w-12 h-12 rounded-full shrink-0 ring-2 ring-neutral-200 dark:ring-neutral-700 overflow-hidden"
+        client:load
+      />
+      <h1 class="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+        Kyle Daley's Notebook
+      </h1>
+    </div>
+    <div class="pl-4 border-l-2 border-brand-600 dark:border-brand-300 space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed">
+      <p>
+        I'm Kyle. I've been writing software professionally for two decades. I've forgotten more than I care to admit, relearn things more often than I'd like, and still get excited when a design finally clicks. This is where I write down what I'm learning, what I'm building, and what I'm thinking about.
+      </p>
+      <p>
+        Outside the work: I'm a Christian first — that shapes how I see everything else. A husband and father of three, which is more important than anything I'll ever ship. And a software engineer who still finds it interesting after all this time. When I'm not at a keyboard, I'm probably thinking about guitar gear or <a href="https://www.delykpcb.com" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-300 hover:underline">designing PCBs for guitar effects</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Recent notes -->
+  <section>
+    <div class="flex items-baseline justify-between mb-2">
+      <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-300">
+        Recent Notes
+      </h2>
+      <a href="/notes" class="text-sm font-medium text-orange-700 dark:text-orange-400 hover:underline">
+        All notes →
+      </a>
+    </div>
+    <div>
+      {notes.length === 0 ? (
+        <p class="py-8 text-neutral-500 dark:text-neutral-400 text-sm">
+          Nothing published yet. Check back soon.
+        </p>
+      ) : (
+        notes.map((note) => (
+          <NoteCard
+            title={note.data.title}
+            description={note.data.description}
+            href={`/notes/${note.id.replace(/\.mdx?$/, '')}`}
+            publishedAt={note.data.publishedAt}
+            kind={note.data.kind}
+            tags={note.data.tags}
+          />
+        ))
+      )}
+    </div>
+  </section>
+</PageLayout>
