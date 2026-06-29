@@ -1,10 +1,12 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
-import PhotoLightbox from '../components/react/PhotoLightbox';
+import PageLayout from "../layouts/PageLayout.astro";
+import PhotoLightbox from "../components/react/PhotoLightbox";
 ---
 
-<PageLayout title="About" description="About Kyle Daley — software engineer, cloud architect, Christian, husband, and father of three.">
-
+<PageLayout
+  title="About"
+  description="About Kyle Daley — software engineer, cloud architect, Christian, husband, and father of three."
+>
   <!-- Photo + name block -->
   <div class="flex flex-col sm:flex-row items-start gap-8 mb-12">
     <PhotoLightbox
@@ -15,7 +17,9 @@ import PhotoLightbox from '../components/react/PhotoLightbox';
       client:load
     />
     <div class="pt-1">
-      <h1 class="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-1">
+      <h1
+        class="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-1"
+      >
         Kyle Daley
       </h1>
       <p class="text-neutral-500 dark:text-neutral-400">
@@ -43,33 +47,106 @@ import PhotoLightbox from '../components/react/PhotoLightbox';
   </div>
 
   <!-- Bio -->
-  <div class="prose prose-neutral dark:prose-invert max-w-none prose-a:text-brand-600 dark:prose-a:text-brand-300">
+  <div
+    class="prose prose-neutral dark:prose-invert max-w-none prose-a:text-brand-600 dark:prose-a:text-brand-300"
+  >
+    <h2>Hi, I'm Kyle.</h2>
 
     <p>
-      I'm Kyle — a Christian, husband, and father of three. That ordering matters to me. What I do professionally doesn't define who I am, even though I've given a lot of myself to it over the years.
+      Christian first, then husband and father to three kids, and somewhere
+      after that I'm a software engineer. That order is intentional. I enjoy
+      what I do for a living, but it isn't who I am.
     </p>
 
     <p>
-      I've been writing software professionally for about twenty years. Most of that time has been spent on distributed systems, cloud infrastructure, and the kind of work that happens at the intersection of code and architecture. I've built teams, designed systems at scale, and made plenty of mistakes that taught me more than the wins did.
+      I've been writing software professionally for about twenty years. Most of
+      that time has been spent building enterprise applications, designing cloud
+      systems, and doing the kind of work that happens at the intersection of
+      code and architecture. I've worked on everything from aging legacy
+      applications to brand new SaaS platforms, and I've enjoyed both for
+      different reasons.
     </p>
 
     <p>
-      What I actually care about in engineering: simplicity. Not the lazy kind — the hard-won kind where you've looked at the complex version and chosen the simpler one on purpose. I've worked at enough places to know that the most expensive code is code nobody can understand anymore.
+      The older I get, the more I appreciate simple software. Not because simple
+      is easy, but because simple is usually the result of understanding the
+      problem well enough to stop being clever. I've written clever code. I've
+      also been the guy trying to maintain clever code five years later. Those
+      are two very different experiences.
     </p>
 
     <p>
-      This site is my notebook. Not a blog in the traditional sense — more like a place to think out loud, to put things in writing so I can be wrong about them clearly. The work tends toward software engineering, distributed systems, cloud architecture, and leadership — but faith and family are at least as central as any of that. I don't separate them cleanly.
+      I've also made my share of mistakes. Looking back, I can honestly say I've
+      learned more from those than I have from most of my successes. Technology
+      changes quickly. Skills fade if you don't use them. Every once in a while
+      you find yourself relearning something you were convinced you'd never
+      forget. I've stopped seeing that as failure. It's just part of the job.
+    </p>
+
+    <p>
+      One of the reasons I started writing these notes is because writing forces
+      me to think more clearly. Sometimes I'll change my own mind halfway
+      through an article. I'm okay with that. I'd rather update my thinking than
+      pretend I had it all figured out from the beginning.
+    </p>
+
+    <p>
+      You'll mostly find thoughts on software engineering, cloud architecture,
+      distributed systems, leadership, interviewing, and AI-assisted
+      development. You'll also find quite a bit about my faith and my walk with
+      Christ. I don't see those as separate parts of my life. My faith
+      influences how I approach my work, my family, and the way I try to treat
+      people. It would feel strange to write about one without occasionally
+      writing about the other.
     </p>
 
     <h2>Outside the keyboard</h2>
 
+    <p>I have entirely too many hobbies.</p>
+
     <p>
-      I design PCBs for guitar effects pedals under the name <a href="https://www.delykpcb.com" target="_blank" rel="noopener noreferrer">delyk PCBs</a> — currently on hiatus, but it's the kind of hobby that doesn't really leave you. (The name? <em>delyk</em> is <em>Kyle D</em> backwards. I thought it was witty.) There's something deeply satisfying about designing a circuit, soldering it together, and making noise with it. If you're into guitar gear, take a look.
+      One of them is designing guitar effects pedal PCBs through <a
+        href="https://www.delykpcb.com"
+        target="_blank"
+        rel="noopener noreferrer">delyk PCBs</a
+      >. If you've ever wondered where the name came from, it's simply "Kyle D"
+      spelled backwards. I thought it was pretty witty when I came up with it,
+      and after all these years I suppose I'm committed to the bit.
     </p>
 
     <p>
-      Guitar gear in general is a bit of an obsession. I make no apologies.
+      That hobby is currently on hiatus, but it's the kind of hobby that doesn't
+      really leave you. There's something deeply satisfying about designing a
+      circuit, soldering it together, and making noise with it.
     </p>
 
+    <p>
+      I'm also the kind of person who enjoys taking things apart just to see how
+      they work. Sometimes I even manage to put them back together again.
+    </p>
+
+    <h2>Why this notebook?</h2>
+
+    <p>
+      I've been doing this for about twenty years. Somewhere along the way I
+      realized I had a lot of thoughts that didn't fit into a LinkedIn post and
+      weren't polished enough to be magazine articles. This notebook is where
+      those thoughts end up.
+    </p>
+
+    <p>
+      Some will be technical. Some will be about architecture, AI, faith,
+      family, or simply getting older in an industry that seems to reinvent
+      itself every few years.
+    </p>
+
+    <p>
+      If nothing else, it'll be interesting to come back in five years and see
+      which ideas still hold up and which ones I've changed my mind about.
+    </p>
+
+    <p>
+      I'm still learning. These notes are simply a record of what I'm learning next...
+    </p>
   </div>
 </PageLayout>
