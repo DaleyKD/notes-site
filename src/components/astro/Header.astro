@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from '../react/ThemeToggle';
+import MobileNav from '../react/MobileNav';
 
 const nav = [
   { label: 'My Career', href: '/career' },
@@ -10,7 +11,7 @@ const nav = [
 const pathname = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 border-b border-neutral-200 dark:border-neutral-800 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-sm">
+<header class="sticky top-0 z-50 border-b border-neutral-200 dark:border-neutral-800 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm">
   <div class="mx-auto max-w-3xl px-4 sm:px-6 flex items-center justify-between h-14">
     <!-- Wordmark -->
     <a href="/" class="text-sm font-bold tracking-tight text-brand-600 dark:text-brand-300 hover:text-brand-700 dark:hover:text-brand-200 transition-colors">
@@ -18,20 +19,24 @@ const pathname = Astro.url.pathname;
     </a>
 
     <!-- Nav -->
-    <nav class="flex items-center gap-1">
-      {nav.map(({ label, href }) => (
-        <a
-          href={href}
-          class:list={[
-            'px-3 py-1.5 rounded-md text-sm transition-colors',
-            pathname === href || pathname.startsWith(href + '/')
-              ? 'text-neutral-900 dark:text-neutral-100 font-medium'
-              : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800',
-          ]}
-        >
-          {label}
-        </a>
-      ))}
+    <div class="flex items-center gap-1">
+      <nav class="hidden sm:flex items-center gap-1">
+        {nav.map(({ label, href }) => (
+          <a
+            href={href}
+            class:list={[
+              'px-3 py-1.5 rounded-md text-sm transition-colors',
+              pathname === href || pathname.startsWith(href + '/')
+                ? 'text-neutral-900 dark:text-neutral-100 font-medium'
+                : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800',
+            ]}
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+
+      <MobileNav nav={nav} pathname={pathname} client:load />
 
       <div class="ml-1 flex items-center gap-1 pl-2 border-l border-neutral-200 dark:border-neutral-800">
         <ThemeToggle client:load />
@@ -58,6 +63,6 @@ const pathname = Astro.url.pathname;
           </svg>
         </a>
       </div>
-    </nav>
+    </div>
   </div>
 </header>
