@@ -1,18 +1,14 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import PhotoLightbox from '../../components/react/PhotoLightbox';
+import BackLink from '../../components/astro/BackLink.astro';
 ---
 
 <PageLayout
   title="Origins: Hall C"
   description="A typing class, a green monochrome monitor, and a move to Texas — the earliest chapter of the story."
 >
-  <a
-    href="/career"
-    class="inline-flex items-center gap-1.5 text-sm font-medium text-orange-700 dark:text-orange-400 hover:underline mb-8"
-  >
-    ← Back to My Career
-  </a>
+  <BackLink href="/career">Back to My Career</BackLink>
 
   <header class="mb-8">
     <p class="text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-300 mb-1">

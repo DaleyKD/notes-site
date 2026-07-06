@@ -1,0 +1,33 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import BackLink from "../components/astro/BackLink.astro";
+---
+
+<PageLayout
+  title="Managers Who Have Influenced Me"
+  description="The managers who shaped how I lead and work, referenced throughout my career chapters."
+>
+  <BackLink href="/career">Back to My Career</BackLink>
+
+  <header class="mb-10">
+    <h1
+      class="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-1"
+    >
+      Managers Who Have Influenced Me
+    </h1>
+    <p class="text-neutral-600 dark:text-neutral-400 text-sm">
+      Referenced throughout the chapters of my career.
+    </p>
+  </header>
+
+  <div
+    class="prose prose-neutral dark:prose-invert max-w-none prose-a:text-brand-600 dark:prose-a:text-brand-300"
+  >
+    <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic">
+      Content coming soon.
+    </p>
+
+    <!-- Each manager gets a heading with a stable id, e.g. <h2 id="jonathan">, so
+         career chapters can link here with /managers#jonathan. -->
+  </div>
+</PageLayout>

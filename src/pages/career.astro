@@ -1,10 +1,122 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
+
+interface Role {
+  title: string;
+  location: string;
+  start: string;
+  end: string;
+  note?: string;
+}
+
+interface Company {
+  id: string;
+  company: string;
+  link?: string;
+  footnotes?: string[];
+  roles: Role[];
+}
+
+interface EducationEntry {
+  school: string;
+  link?: string;
+  credential: string;
+  start: string;
+  end: string;
+}
+
+interface Certification {
+  name: string;
+  link?: string;
+  issuer: string;
+  issued: string;
+}
+
+const experience: Company[] = [
+  {
+    id: "morae-gimmal",
+    company: "Morae / Gimmal",
+    link: "https://morae.com",
+    roles: [
+      {
+        title: "Cloud Architect | Platform & SaaS Architecture",
+        location: "Remote",
+        start: "Feb 2022",
+        end: "Present",
+        note: "Gimmal was acquired by Morae in May 2025; continued in the same role.",
+      },
+      {
+        title: "Senior Software Engineer",
+        location: "Remote",
+        start: "Aug 2014",
+        end: "Feb 2022",
+      },
+      {
+        title: "Software Engineer",
+        location: "Dallas, TX",
+        start: "Aug 2011",
+        end: "Aug 2014",
+      },
+    ],
+  },
+  {
+    id: "meisel",
+    company: "Meisel",
+    footnotes: [
+      "Joined part-time as a 1099 contractor in Oct 2007 while still full-time at Hanson, then moved to full-time here before leaving Hanson.",
+    ],
+    roles: [
+      {
+        title: "ERP Application Developer",
+        location: "Carrollton, TX",
+        start: "Oct 2007",
+        end: "Aug 2011",
+      },
+    ],
+  },
+  {
+    id: "hanson",
+    company: "Hanson",
+    roles: [
+      {
+        title: "Senior .NET Developer",
+        location: "Hybrid",
+        start: "Jun 2006",
+        end: "Jul 2008",
+      },
+      {
+        title: "Helpdesk Tech II",
+        location: "Irving, TX",
+        start: "Oct 2003",
+        end: "Jun 2006",
+      },
+    ],
+  },
+];
+
+const education: EducationEntry[] = [
+  {
+    school: "The University of Texas at Dallas",
+    link: "https://www.utdallas.edu",
+    credential: "Bachelor of Science (BS), Management Information Systems, General",
+    start: "Aug 1999",
+    end: "May 2005",
+  },
+];
+
+const certifications: Certification[] = [
+  {
+    name: "CompTIA A+ Certification",
+    link: "https://www.comptia.org",
+    issuer: "CompTIA",
+    issued: "Dec 2000",
+  },
+];
 ---
 
 <PageLayout
   title="My Career"
-  description="Twenty years of software engineering — the story behind the résumé."
+  description="Twenty years of software engineering, and the story behind the résumé."
 >
   <header class="mb-10 flex items-start justify-between gap-4">
     <div>
@@ -43,274 +155,200 @@ import PageLayout from "../layouts/PageLayout.astro";
   </header>
 
   <div
-    class="prose prose-neutral dark:prose-invert max-w-none prose-a:text-brand-600 dark:prose-a:text-brand-300 prose-blockquote:border-brand-300 dark:prose-blockquote:border-brand-700"
+    class="prose prose-neutral dark:prose-invert max-w-none prose-a:text-brand-600 dark:prose-a:text-brand-300 mb-10"
   >
-    <p>This page is a little different than a traditional résumé.</p>
-
     <p>
-      Sure, you can skim it. You can jump to the technologies, <a
-        href="/KyleDaleyResume.pdf">download the PDF résumé</a
-      >, and move on. There's nothing wrong with that. But that's not really
-      what I had in mind when I wrote it.
+      My career has taken a path I never could have planned. If you're here
+      because of a résumé or LinkedIn, you'll find the highlights,
+      technologies, and responsibilities from each stage of my career. Those
+      only tell part of the story. The chapters alongside them explain how I
+      got there, the people I worked with, the lessons I learned, and the
+      moments that quietly changed the direction of my life. If you choose to
+      read those, I recommend starting at the beginning.
     </p>
 
     <p>
-      If we ever grab coffee together, there's a pretty good chance this is
-      where the conversation ends up anyway. We'll probably start by talking
-      about whatever technology we're both interested in at the moment. Before
-      long we'll wander into old Microsoft technologies, software architecture,
-      managers who shaped my career, projects that never shipped, lessons
-      learned the hard way, and chase some rabbits that somehow circle back to
-      the original topic.
+      One thread runs through every stage of my career: someone was willing
+      to trust me with an opportunity I hadn't quite earned on paper. A
+      manager saw potential, a coworker made an introduction, or someone
+      simply believed I could grow into a role before I believed it myself. I
+      am deeply grateful for each of those people. I worked hard to be worthy
+      of the confidence they placed in me, and I hope these stories honor the
+      part they played in the engineer I eventually became.
     </p>
+  </div>
 
-    <p>That's what I wanted this page to feel like.</p>
-
-    <p>
-      Not a polished timeline of jobs and titles, but the kind of conversation
-      where we're getting to know each other over a couple cups of coffee. We'll
-      listen as much as we talk. We'll laugh a little. We'll probably refill our
-      mugs more than once. And by the time we're done, I hope you'll have a
-      better sense of who I am as an engineer, and maybe as a person, than any
-      two-page résumé could ever tell you.
-    </p>
-
-    <p>So welcome! I'm glad you're here.</p>
-
-    <blockquote>
-      "I want this page to feel like we're having coffee, chasing rabbits, telling stories, and getting to know each other."
-    </blockquote>
-
+  <!-- Side-by-side TOCs: résumé (left) vs. chronological chapters (right) -->
+  <div class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
     <nav
-      class="not-prose mb-10 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-5"
+      aria-labelledby="resume-toc-heading"
+      class="rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-5"
     >
       <h2
+        id="resume-toc-heading"
         class="text-sm font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400 mb-3"
       >
-        On this page
+        By the Résumé
       </h2>
-
       <ol class="space-y-2 text-sm">
-        <li><a href="#today">Where I Am Today</a></li>
         <li>
-          <a href="#beginning">I Didn't Plan to Become a Software Engineer</a>
+          <a href="#professional-experience" class="text-brand-600 dark:text-brand-300 hover:underline">Professional Experience</a>
+          <ol class="mt-1.5 ml-3.5 space-y-1.5 border-l border-neutral-200 dark:border-neutral-800 pl-3">
+            {experience.map((company) => (
+              <li>
+                <a href={`#${company.id}`} class="text-neutral-600 dark:text-neutral-400 hover:text-brand-600 dark:hover:text-brand-300 hover:underline">
+                  {company.company}
+                </a>
+              </li>
+            ))}
+          </ol>
         </li>
-        <li><a href="#gimmal">Finding My Place</a></li>
-        <li><a href="#historian">Becoming the Historian</a></li>
-        <li><a href="#platforms">Learning to Build Platforms</a></li>
+        <li><a href="#technical-skills" class="text-brand-600 dark:text-brand-300 hover:underline">Technical Skills</a></li>
+        <li><a href="#education" class="text-brand-600 dark:text-brand-300 hover:underline">Education &amp; Certifications</a></li>
       </ol>
     </nav>
 
-    <h2 id="today">Where I Am Today</h2>
-
-    <p>
-      My career has never really been about chasing titles or the latest
-      technology. It's been a series of opportunities where someone trusted me
-      before I felt completely ready, surrounded by people who taught me more
-      than they probably realized.
-    </p>
-
-    <p>
-      I've spent more than twenty years writing software. During that time I've
-      lived through desktop applications, SharePoint, Silverlight, cloud
-      architecture, containers, and AI-assisted development. The technologies
-      have changed constantly.
-    </p>
-
-    <p>What hasn't changed is the kind of work I enjoy.</p>
-
-    <p>
-      These days I spend most of my time listening. Product, Engineering,
-      Customer Success, subject matter experts, stakeholders, and customers all
-      have different perspectives. I enjoy taking all of that, understanding the
-      systems we already have, and helping teams find a path forward.
-    </p>
-
-    <p>Once we've figured that out...</p>
-
-    <p>I still love writing code.</p>
-
-    <p>The rest of this page is how I got here.</p>
-
-    <h2 id="beginning">I Didn't Plan to Become a Software Engineer</h2>
-
-    <p>
-      I started writing software in high school back in 1996. My computer
-      science teacher, Coach Baker, somehow made programming fun. We wrote Turbo
-      Pascal, solved problems, and looked forward to class every day.
-    </p>
-
-    <a
-      href="/career/origins"
-      class="not-prose inline-flex items-center gap-1.5 mb-6 text-sm font-medium text-orange-700 dark:text-orange-400 hover:underline"
+    <nav
+      aria-labelledby="chapters-toc-heading"
+      class="rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-5"
     >
-      Read the full story: Origins: Hall C →
-    </a>
+      <h2
+        id="chapters-toc-heading"
+        class="text-sm font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400 mb-3"
+      >
+        Chronologically
+      </h2>
+      <ol class="space-y-2 text-sm">
+        <li><a href="/career/origins" class="text-brand-600 dark:text-brand-300 hover:underline">Origins: Hall C</a></li>
+        <li><a href="/career/act-i" class="text-brand-600 dark:text-brand-300 hover:underline">Act I: An Unexpected Fork</a></li>
+        <li><a href="/career/act-ii" class="text-brand-600 dark:text-brand-300 hover:underline">Act II <span class="text-xs italic text-neutral-400 dark:text-neutral-600">(title TBD)</span></a></li>
+        <li><a href="/career/act-iii" class="text-brand-600 dark:text-brand-300 hover:underline">Act III <span class="text-xs italic text-neutral-400 dark:text-neutral-600">(title TBD)</span></a></li>
+      </ol>
+    </nav>
+  </div>
 
-    <p>
-      Oddly enough, I left for college convinced I <em>didn't</em> want to become
-      a programmer.
+  <!-- Pointer to the managers page, linked throughout the chapters -->
+  <a
+    href="/managers"
+    class="not-prose group block rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-5 mb-10 hover:border-brand-300 dark:hover:border-brand-700 transition-colors"
+  >
+    <p class="text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-300 mb-1">
+      A running theme
+    </p>
+    <p class="font-medium text-neutral-900 dark:text-neutral-100 mb-1">
+      Managers Who Have Influenced Me
+      <span class="text-brand-600 dark:text-brand-300 group-hover:underline">&rarr;</span>
+    </p>
+    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+      Almost every chapter below comes back to someone who managed me and
+      shaped how I lead and work today. I've collected them in one place.
+    </p>
+  </a>
+
+  <!-- Résumé sections: content pending -->
+  <div
+    class="prose prose-neutral dark:prose-invert max-w-none prose-a:text-brand-600 dark:prose-a:text-brand-300"
+  >
+    <h2 id="professional-experience">Professional Experience</h2>
+    <div class="not-prose space-y-6">
+      {experience.map((company) => (
+        <div id={company.id}>
+          <h3 class="text-base font-semibold text-neutral-900 dark:text-neutral-100">
+            {company.link ? (
+              <a href={company.link} target="_blank" rel="noopener noreferrer" class="hover:underline">
+                {company.company}
+              </a>
+            ) : (
+              company.company
+            )}
+          </h3>
+          <ul class="mt-2 space-y-3">
+            {company.roles.map((role) => (
+              <li>
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+                  <span class="text-sm font-medium text-neutral-800 dark:text-neutral-200">
+                    {role.title}
+                  </span>
+                  <span class="text-xs text-neutral-500 dark:text-neutral-400 whitespace-nowrap">
+                    {role.start} &ndash; {role.end}
+                  </span>
+                </div>
+                <p class="text-xs text-neutral-500 dark:text-neutral-400">{role.location}</p>
+                {role.note && (
+                  <p class="text-xs text-neutral-500 dark:text-neutral-400 italic mt-0.5">
+                    {role.note}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+          {company.footnotes && (
+            <ul class="mt-2 space-y-0.5">
+              {company.footnotes.map((footnote) => (
+                <li class="text-xs text-neutral-500 dark:text-neutral-400 italic">{footnote}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <h2 id="technical-skills">Technical Skills</h2>
+    <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic">
+      Résumé content coming soon.
     </p>
 
-    <p>
-      After struggling through Discrete Math, I changed majors from Computer
-      Science to Management Information Systems and figured I'd stay closer to
-      the business side of technology.
-    </p>
+    <h2 id="education">Education &amp; Certifications</h2>
+    <div class="not-prose space-y-6">
+      <div>
+        <h3 class="text-base font-semibold text-neutral-900 dark:text-neutral-100">Education</h3>
+        <ul class="mt-2 space-y-3">
+          {education.map((entry) => (
+            <li>
+              <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+                <span class="text-sm font-medium text-neutral-800 dark:text-neutral-200">
+                  {entry.link ? (
+                    <a href={entry.link} target="_blank" rel="noopener noreferrer" class="hover:underline">
+                      {entry.school}
+                    </a>
+                  ) : (
+                    entry.school
+                  )}
+                </span>
+                <span class="text-xs text-neutral-500 dark:text-neutral-400 whitespace-nowrap">
+                  {entry.start} &ndash; {entry.end}
+                </span>
+              </div>
+              <p class="text-xs text-neutral-500 dark:text-neutral-400">{entry.credential}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-    <p>Funny enough, that's not how things worked out.</p>
-
-    <p>
-      My first real opportunity came through a friend who helped me land a job
-      at Hanson Building Materials. I wasn't hired as a software developer. In
-      fact, I eventually accepted what was supposed to be a DBA position that
-      turned out to be little more than glorified data entry.
-    </p>
-
-    <p>
-      During a project to build a sales quoting application, someone found out
-      I'd written software back in high school and asked if I wanted to take a
-      crack at writing some code.
-    </p>
-
-    <p>I said yes.</p>
-
-    <p>
-      I had no experience with .NET, but .NET 2.0 had just been released, so I
-      learned as I went. Looking back, that set the tone for the rest of my
-      career. I've rarely been the person who already knew everything. More
-      often, someone trusted me enough to learn.
-    </p>
-
-    <p>
-      A few years later I joined Meisel, where I worked on an in-house ERP
-      system. I learned a tremendous amount there, both technically and
-      professionally. Around that time .NET 4.0 was released, and we were
-      fortunate enough to attend the Visual Studio 2010 launch event in Las
-      Vegas. I still remember how energized we all were when we came back. It
-      felt like there was something new to learn every week.
-    </p>
-
-    <p>Somewhere along the way I realized something.</p>
-
-    <p>I actually loved writing software.</p>
-
-    <h2 id="gimmal">Finding My Place</h2>
-
-    <p>In August of 2011 I joined GimmalSoft.</p>
-
-    <p>
-      When I started there were four of us in a small office in the Galleria
-      Towers. I had an incredible amount to learn. SharePoint. Silverlight. WCF.
-      Records management. I remember feeling like I was drinking from a fire
-      hose.
-    </p>
-
-    <p>
-      What I remember even more than the technology, though, are the people.
-    </p>
-
-    <p>
-      We worked together. If someone had a question, we'd grab a whiteboard.
-      Damon and Jeff had years of experience. Jonathan was our architect. None
-      of them ever made me feel like I was "just" the junior developer. We
-      solved problems together.
-    </p>
-
-    <p>
-      As the team grew, so did the office. Lunch usually meant everyone piling
-      into cars together. More than once we ended up playing Super Smash Bros.
-      on a GameCube before getting back to work. Big milestones usually meant
-      Fogo de Chão.
-    </p>
-
-    <p>It sounds strange to write this on a career page, but it matters.</p>
-
-    <p>
-      We watched Jonathan lose his wife to cancer. Later we celebrated his
-      marriage to Kari. The team was there when all three of my children were
-      born. When my mom passed away, they all came to the funeral.
-    </p>
-
-    <p>We weren't just coworkers.</p>
-
-    <p>We were family.</p>
-
-    <blockquote>
-      Someday I'd like to write more about this period of my career. It shaped
-      me more than any technology ever has.
-    </blockquote>
-
-    <h2 id="historian">Becoming the Historian</h2>
-
-    <p>The longer I stayed, the more products I touched.</p>
-
-    <ul>
-      <li>Compliance Suite</li>
-      <li>Information Governance Suite</li>
-      <li>Enterprise Events</li>
-      <li>File Plan Builder</li>
-      <li>Advanced Content Type Retention</li>
-      <li>Unified Records Management</li>
-      <li>Physical Inventory Management</li>
-    </ul>
-
-    <p>
-      Somewhere along the way I became the person people came to when they
-      wanted to understand how all of those systems fit together.
-    </p>
-
-    <p>I never really planned for that to happen.</p>
-
-    <p>
-      Then Microsoft introduced SharePoint Apps and CSOM, forcing us to rethink
-      huge portions of our architecture. Supporting both SharePoint Online and
-      on-premises customers wasn't easy, but those years taught me how to think
-      beyond individual applications and start thinking about platforms.
-    </p>
-
-    <p>Eventually the office closed.</p>
-
-    <p>
-      I remember taking my young daughter with me one last time to help box up
-      the remaining equipment before turning in the keys.
-    </p>
-
-    <p>That was a difficult day.</p>
-
-    <h2 id="platforms">Learning to Build Platforms</h2>
-
-    <p>Before long I was asked to join the SaaS team.</p>
-
-    <p>
-      It didn't feel like a promotion. It felt like another opportunity to
-      learn.
-    </p>
-
-    <p>
-      Docker. Azure. .NET Core. Angular. Terraform. Multi-tenancy. Automated
-      provisioning.
-    </p>
-
-    <p>
-      Once again I found myself walking into a room where everyone seemed to
-      know more than I did.
-    </p>
-
-    <p>That feeling has become surprisingly familiar over the years.</p>
-
-    <p>
-      During Program Increment planning we'd spend hours around whiteboards
-      talking through ideas before writing a single line of code. One of our
-      product managers, Nathan, had a phrase I've carried with me ever since:
-    </p>
-
-    <blockquote>
-      "I don't care how you architect it. Just don't paint yourselves into a
-      corner."
-    </blockquote>
-
-    <p>I still think about that advice today.</p>
-
+      <div>
+        <h3 class="text-base font-semibold text-neutral-900 dark:text-neutral-100">Certifications</h3>
+        <ul class="mt-2 space-y-3">
+          {certifications.map((cert) => (
+            <li>
+              <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+                <span class="text-sm font-medium text-neutral-800 dark:text-neutral-200">
+                  {cert.link ? (
+                    <a href={cert.link} target="_blank" rel="noopener noreferrer" class="hover:underline">
+                      {cert.name}
+                    </a>
+                  ) : (
+                    cert.name
+                  )}
+                </span>
+                <span class="text-xs text-neutral-500 dark:text-neutral-400 whitespace-nowrap">
+                  Issued {cert.issued}
+                </span>
+              </div>
+              <p class="text-xs text-neutral-500 dark:text-neutral-400">{cert.issuer}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   </div>
 </PageLayout>

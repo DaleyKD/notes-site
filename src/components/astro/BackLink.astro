@@ -1,0 +1,17 @@
+---
+import { ArrowLeft } from "lucide-react";
+
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a
+  href={href}
+  class="inline-flex items-center gap-1.5 text-sm font-medium text-orange-700 dark:text-orange-400 hover:underline mb-8"
+>
+  <ArrowLeft size={14} />
+  <slot />
+</a>
