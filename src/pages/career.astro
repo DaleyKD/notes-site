@@ -6,6 +6,7 @@ interface Role {
   location: string;
   start: string;
   end: string;
+  link?: string;
   note?: string;
 }
 
@@ -39,7 +40,7 @@ const experience: Company[] = [
     link: "https://morae.com",
     roles: [
       {
-        title: "Cloud Architect | Platform & SaaS Architecture",
+        title: "Cloud Architect",
         location: "Remote",
         start: "Feb 2022",
         end: "Present",
@@ -89,6 +90,7 @@ const experience: Company[] = [
         location: "Irving, TX",
         start: "Oct 2003",
         end: "Jun 2006",
+        link: "/career/act-i#building-the-help-desk",
       },
     ],
   },
@@ -267,7 +269,13 @@ const certifications: Certification[] = [
               <li>
                 <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
                   <span class="text-sm font-medium text-neutral-800 dark:text-neutral-200">
-                    {role.title}
+                    {role.link ? (
+                      <a href={role.link} class="hover:underline">
+                        {role.title}
+                      </a>
+                    ) : (
+                      role.title
+                    )}
                   </span>
                   <span class="text-xs text-neutral-500 dark:text-neutral-400 whitespace-nowrap">
                     {role.start} &ndash; {role.end}

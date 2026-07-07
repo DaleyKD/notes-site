@@ -1,0 +1,40 @@
+---
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
+interface ChapterLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  prev?: ChapterLink;
+  next?: ChapterLink;
+}
+
+const { prev, next } = Astro.props;
+---
+
+<nav aria-label="Chapter navigation" class="not-prose flex items-center justify-between gap-4 mt-10">
+  {prev ? (
+    <a href={prev.href} class="group max-w-[45%]">
+      <p class="text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-300 mb-0.5">
+        Previous
+      </p>
+      <span class="inline-flex items-center gap-1.5 text-sm font-medium text-orange-700 dark:text-orange-400 group-hover:underline">
+        <ArrowLeft size={14} />
+        {prev.label}
+      </span>
+    </a>
+  ) : <span />}
+  {next ? (
+    <a href={next.href} class="group max-w-[45%] text-right">
+      <p class="text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-300 mb-0.5">
+        Next
+      </p>
+      <span class="inline-flex items-center gap-1.5 text-sm font-medium text-orange-700 dark:text-orange-400 group-hover:underline">
+        {next.label}
+        <ArrowRight size={14} />
+      </span>
+    </a>
+  ) : <span />}
+</nav>

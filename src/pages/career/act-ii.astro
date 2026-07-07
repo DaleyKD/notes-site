@@ -1,6 +1,10 @@
 ---
 import PageLayout from "../../layouts/PageLayout.astro";
 import BackLink from "../../components/astro/BackLink.astro";
+import ChapterNav from "../../components/astro/ChapterNav.astro";
+
+const prev = { href: "/career/act-i", label: "Act I: An Unexpected Fork" };
+const next = { href: "/career/act-iii", label: "Act III" };
 ---
 
 <PageLayout
@@ -26,4 +30,6 @@ import BackLink from "../../components/astro/BackLink.astro";
       years at <a href="/career#morae-gimmal">GimmalSoft</a>.
     </p>
   </div>
+
+  <ChapterNav prev={prev} next={next} />
 </PageLayout>

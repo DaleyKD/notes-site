@@ -2,6 +2,9 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import PhotoLightbox from '../../components/react/PhotoLightbox';
 import BackLink from '../../components/astro/BackLink.astro';
+import ChapterNav from '../../components/astro/ChapterNav.astro';
+
+const next = { href: '/career/act-i', label: 'Act I: An Unexpected Fork' };
 ---
 
 <PageLayout
@@ -351,4 +354,6 @@ import BackLink from '../../components/astro/BackLink.astro';
 
     <p>What remained was learning how to think.</p>
   </div>
+
+  <ChapterNav next={next} />
 </PageLayout>
