@@ -58,3 +58,10 @@
     transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease !important;
   }
 }
+
+/* Tailwind Typography's default prose h2 (1.5em) reads the same size as our
+   page-header h1 (text-2xl). Left unlayered so it wins over the plugin's
+   own (layered) rule regardless of source order. */
+.prose h2 {
+  font-size: 1.375em;
+}

@@ -20,14 +20,66 @@ import BackLink from "../components/astro/BackLink.astro";
     </p>
   </header>
 
+  <nav
+    aria-labelledby="managers-toc-heading"
+    class="not-prose rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-5 mb-10"
+  >
+    <h2
+      id="managers-toc-heading"
+      class="text-sm font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400 mb-3"
+    >
+      Jump to
+    </h2>
+    <ol class="space-y-2 text-sm">
+      <li><a href="#ken" class="text-brand-600 dark:text-brand-300 hover:underline">Ken</a></li>
+      <li><a href="#leo" class="text-brand-600 dark:text-brand-300 hover:underline">Leo</a></li>
+      <li><a href="#brad" class="text-brand-600 dark:text-brand-300 hover:underline">Brad</a></li>
+      <li><a href="#jonathan" class="text-brand-600 dark:text-brand-300 hover:underline">Jonathan</a></li>
+      <li><a href="#kevin" class="text-brand-600 dark:text-brand-300 hover:underline">Kevin</a></li>
+      <li><a href="#shawn" class="text-brand-600 dark:text-brand-300 hover:underline">Shawn</a></li>
+      <li><a href="#bal" class="text-brand-600 dark:text-brand-300 hover:underline">Bal</a></li>
+    </ol>
+  </nav>
+
   <div
     class="prose prose-neutral dark:prose-invert max-w-none prose-a:text-brand-600 dark:prose-a:text-brand-300"
   >
+    <!-- Chronological order, matching the Act chapters. Each heading has a
+         stable id so career chapters can link here, e.g. /managers#kevin. -->
+
+    <h2 id="ken">Ken</h2>
     <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic">
       Content coming soon.
     </p>
 
-    <!-- Each manager gets a heading with a stable id, e.g. <h2 id="jonathan">, so
-         career chapters can link here with /managers#jonathan. -->
+    <h2 id="leo">Leo</h2>
+    <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic">
+      Content coming soon.
+    </p>
+
+    <h2 id="brad">Brad</h2>
+    <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic">
+      Content coming soon.
+    </p>
+
+    <h2 id="jonathan">Jonathan</h2>
+    <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic">
+      Content coming soon.
+    </p>
+
+    <h2 id="kevin">Kevin</h2>
+    <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic">
+      Content coming soon.
+    </p>
+
+    <h2 id="shawn">Shawn</h2>
+    <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic">
+      Content coming soon.
+    </p>
+
+    <h2 id="bal">Bal</h2>
+    <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic">
+      Content coming soon.
+    </p>
   </div>
 </PageLayout>

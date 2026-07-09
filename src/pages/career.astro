@@ -1,5 +1,6 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
+import { ArrowRight } from "lucide-react";
 
 interface Role {
   title: string;
@@ -223,7 +224,7 @@ const certifications: Certification[] = [
       <ol class="space-y-2 text-sm">
         <li><a href="/career/origins" class="text-brand-600 dark:text-brand-300 hover:underline">Origins: Hall C</a></li>
         <li><a href="/career/act-i" class="text-brand-600 dark:text-brand-300 hover:underline">Act I: An Unexpected Fork</a></li>
-        <li><a href="/career/act-ii" class="text-brand-600 dark:text-brand-300 hover:underline">Act II <span class="text-xs italic text-neutral-400 dark:text-neutral-600">(title TBD)</span></a></li>
+        <li><a href="/career/act-ii" class="text-brand-600 dark:text-brand-300 hover:underline">Act II: Building an Engineer</a></li>
         <li><a href="/career/act-iii" class="text-brand-600 dark:text-brand-300 hover:underline">Act III <span class="text-xs italic text-neutral-400 dark:text-neutral-600">(title TBD)</span></a></li>
       </ol>
     </nav>
@@ -237,9 +238,9 @@ const certifications: Certification[] = [
     <p class="text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-300 mb-1">
       A running theme
     </p>
-    <p class="font-medium text-neutral-900 dark:text-neutral-100 mb-1">
-      Managers Who Have Influenced Me
-      <span class="text-brand-600 dark:text-brand-300 group-hover:underline">&rarr;</span>
+    <p class="font-medium text-neutral-900 dark:text-neutral-100 mb-1 inline-flex items-center gap-1.5">
+      <span class="group-hover:underline">Managers Who Have Influenced Me</span>
+      <ArrowRight size={16} className="text-brand-600 dark:text-brand-300 transition-transform group-hover:translate-x-0.5" />
     </p>
     <p class="text-sm text-neutral-600 dark:text-neutral-400">
       Almost every chapter below comes back to someone who managed me and
