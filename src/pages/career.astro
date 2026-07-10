@@ -1,5 +1,6 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
+import ChapterTOC from "../components/astro/ChapterTOC.astro";
 import { ArrowRight } from "lucide-react";
 
 interface Role {
@@ -85,6 +86,7 @@ const experience: Company[] = [
         location: "Hybrid",
         start: "Jun 2006",
         end: "Jul 2008",
+        link: "/career/act-ii#becoming-a-developer",
       },
       {
         title: "Helpdesk Tech II",
@@ -114,6 +116,23 @@ const certifications: Certification[] = [
     issuer: "CompTIA",
     issued: "Dec 2000",
   },
+];
+
+const resumeTocSections = [
+  {
+    id: "professional-experience",
+    label: "Professional Experience",
+    subsections: experience.map((company) => ({ id: company.id, label: company.company })),
+  },
+  { id: "technical-skills", label: "Technical Skills" },
+  { id: "education", label: "Education & Certifications" },
+];
+
+const chaptersTocSections = [
+  { id: "origins", label: "Origins: Hall C", href: "/career/origins" },
+  { id: "act-i", label: "Act I: An Unexpected Fork", href: "/career/act-i" },
+  { id: "act-ii", label: "Act II: Building an Engineer", href: "/career/act-ii" },
+  { id: "act-iii", label: "Act III", href: "/career/act-iii", note: "(title TBD)" },
 ];
 ---
 
@@ -183,51 +202,8 @@ const certifications: Certification[] = [
 
   <!-- Side-by-side TOCs: résumé (left) vs. chronological chapters (right) -->
   <div class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-    <nav
-      aria-labelledby="resume-toc-heading"
-      class="rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-5"
-    >
-      <h2
-        id="resume-toc-heading"
-        class="text-sm font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400 mb-3"
-      >
-        By the Résumé
-      </h2>
-      <ol class="space-y-2 text-sm">
-        <li>
-          <a href="#professional-experience" class="text-brand-600 dark:text-brand-300 hover:underline">Professional Experience</a>
-          <ol class="mt-1.5 ml-3.5 space-y-1.5 border-l border-neutral-200 dark:border-neutral-800 pl-3">
-            {experience.map((company) => (
-              <li>
-                <a href={`#${company.id}`} class="text-neutral-600 dark:text-neutral-400 hover:text-brand-600 dark:hover:text-brand-300 hover:underline">
-                  {company.company}
-                </a>
-              </li>
-            ))}
-          </ol>
-        </li>
-        <li><a href="#technical-skills" class="text-brand-600 dark:text-brand-300 hover:underline">Technical Skills</a></li>
-        <li><a href="#education" class="text-brand-600 dark:text-brand-300 hover:underline">Education &amp; Certifications</a></li>
-      </ol>
-    </nav>
-
-    <nav
-      aria-labelledby="chapters-toc-heading"
-      class="rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-5"
-    >
-      <h2
-        id="chapters-toc-heading"
-        class="text-sm font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400 mb-3"
-      >
-        Chronologically
-      </h2>
-      <ol class="space-y-2 text-sm">
-        <li><a href="/career/origins" class="text-brand-600 dark:text-brand-300 hover:underline">Origins: Hall C</a></li>
-        <li><a href="/career/act-i" class="text-brand-600 dark:text-brand-300 hover:underline">Act I: An Unexpected Fork</a></li>
-        <li><a href="/career/act-ii" class="text-brand-600 dark:text-brand-300 hover:underline">Act II: Building an Engineer</a></li>
-        <li><a href="/career/act-iii" class="text-brand-600 dark:text-brand-300 hover:underline">Act III <span class="text-xs italic text-neutral-400 dark:text-neutral-600">(title TBD)</span></a></li>
-      </ol>
-    </nav>
+    <ChapterTOC heading="By the Résumé" sections={resumeTocSections} />
+    <ChapterTOC heading="Chronologically" sections={chaptersTocSections} />
   </div>
 
   <!-- Pointer to the managers page, linked throughout the chapters -->

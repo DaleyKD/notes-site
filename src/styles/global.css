@@ -28,12 +28,18 @@
   --color-brand-950: #090b15;
 
   --color-accent-secondary: #ea580c;
+
+  /* Sticky site header height — shared with Header.astro and the anchor
+     scroll offset below, so the two can't drift out of sync. */
+  --header-height: 3.5rem;
 }
 
 @layer base {
   html {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    /* Keeps anchor-jump targets clear of the sticky header, plus a little breathing room. */
+    scroll-padding-top: calc(var(--header-height) + 1.5rem);
   }
 
   /* External link indicator — all [target="_blank"] links except icon-only ones (which carry aria-label) */

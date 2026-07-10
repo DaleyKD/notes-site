@@ -2,9 +2,15 @@
 import PageLayout from "../../layouts/PageLayout.astro";
 import BackLink from "../../components/astro/BackLink.astro";
 import ChapterNav from "../../components/astro/ChapterNav.astro";
+import ChapterTOC from "../../components/astro/ChapterTOC.astro";
 
 const prev = { href: "/career/origins", label: "Origins: Hall C" };
 const next = { href: "/career/act-ii", label: "Act II: Building an Engineer" };
+
+const sections = [
+  { id: "a-place-of-my-own", label: "A Place of My Own" },
+  { id: "building-the-help-desk", label: "Building the Help Desk" },
+];
 ---
 
 <PageLayout
@@ -21,6 +27,8 @@ const next = { href: "/career/act-ii", label: "Act II: Building an Engineer" };
       An Unexpected Fork
     </h1>
   </header>
+
+  <ChapterTOC sections={sections} class="mb-10" />
 
   <div
     class="prose prose-neutral dark:prose-invert max-w-none prose-a:text-brand-600 dark:prose-a:text-brand-300 prose-blockquote:border-brand-300 dark:prose-blockquote:border-brand-700 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none"

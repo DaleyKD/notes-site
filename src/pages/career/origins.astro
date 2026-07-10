@@ -3,8 +3,16 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import PhotoLightbox from '../../components/react/PhotoLightbox';
 import BackLink from '../../components/astro/BackLink.astro';
 import ChapterNav from '../../components/astro/ChapterNav.astro';
+import ChapterTOC from '../../components/astro/ChapterTOC.astro';
 
 const next = { href: '/career/act-i', label: 'Act I: An Unexpected Fork' };
+
+const sections = [
+  { id: 'finding-hall-c', label: 'Finding Hall C' },
+  { id: 'coach-baker', label: 'Coach Baker' },
+  { id: 'the-live-wire', label: 'The Live Wire' },
+  { id: 'the-end-of-hall-c', label: 'The End of Hall C' },
+];
 ---
 
 <PageLayout
@@ -21,6 +29,8 @@ const next = { href: '/career/act-i', label: 'Act I: An Unexpected Fork' };
       Origins: Hall C
     </h1>
   </header>
+
+  <ChapterTOC sections={sections} class="mb-10" />
 
   <div class="not-prose mb-8 relative overflow-hidden rounded-lg border border-neutral-700 bg-black p-4 shadow-inner">
     <div

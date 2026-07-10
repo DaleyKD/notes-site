@@ -1,0 +1,71 @@
+---
+interface TOCSubsection {
+  id: string;
+  label: string;
+  href?: string;
+  note?: string;
+}
+
+interface TOCSection extends TOCSubsection {
+  comingSoon?: boolean;
+  subsections?: TOCSubsection[];
+}
+
+interface Props {
+  sections: TOCSection[];
+  heading?: string;
+  class?: string;
+}
+
+const { sections, heading = "Jump to", class: className } = Astro.props;
+---
+
+<nav
+  aria-label={heading}
+  class:list={[
+    "not-prose rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-5",
+    className,
+  ]}
+>
+  <h2 class="text-sm font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400 mb-3">
+    {heading}
+  </h2>
+  <ol class="space-y-2 text-sm">
+    {sections.map((section) => (
+      <li>
+        {section.comingSoon ? (
+          <span class="text-neutral-400 dark:text-neutral-600 italic">
+            {section.label} <span class="text-xs">(coming soon)</span>
+          </span>
+        ) : (
+          <a
+            href={section.href ?? `#${section.id}`}
+            class="text-brand-600 dark:text-brand-300 hover:underline font-medium"
+          >
+            {section.label}
+            {section.note && (
+              <span class="text-xs italic text-neutral-400 dark:text-neutral-600"> {section.note}</span>
+            )}
+          </a>
+        )}
+        {section.subsections && (
+          <ol class="mt-1.5 ml-3.5 space-y-1.5 border-l border-neutral-200 dark:border-neutral-800 pl-3">
+            {section.subsections.map((sub) => (
+              <li>
+                <a
+                  href={sub.href ?? `#${sub.id}`}
+                  class="text-neutral-600 dark:text-neutral-400 hover:text-brand-600 dark:hover:text-brand-300 hover:underline"
+                >
+                  {sub.label}
+                  {sub.note && (
+                    <span class="text-xs italic text-neutral-400 dark:text-neutral-600"> {sub.note}</span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ol>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>

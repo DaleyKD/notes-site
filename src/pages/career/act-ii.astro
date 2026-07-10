@@ -2,14 +2,33 @@
 import PageLayout from "../../layouts/PageLayout.astro";
 import BackLink from "../../components/astro/BackLink.astro";
 import ChapterNav from "../../components/astro/ChapterNav.astro";
+import ChapterTOC from "../../components/astro/ChapterTOC.astro";
 
 const prev = { href: "/career/act-i", label: "Act I: An Unexpected Fork" };
 const next = { href: "/career/act-iii", label: "Act III" };
+
+const sections = [
+  {
+    id: "hanson",
+    label: "Hanson",
+    subsections: [
+      { id: "an-unexpected-offer", label: "An Unexpected Offer" },
+      { id: "a-week-in-ohio", label: "A Week in Ohio" },
+      { id: "building-a-better-quote", label: "Building a Better Quote" },
+      { id: "becoming-a-developer", label: "Becoming a Developer" },
+      { id: "life-on-the-road", label: "Life on the Road" },
+      { id: "the-move-that-never-happened", label: "The Move That Never Happened" },
+      { id: "one-more-opportunity", label: "One More Opportunity" },
+    ],
+  },
+  { id: "meisel", label: "Meisel", comingSoon: true },
+  { id: "gimmal", label: "Gimmal", comingSoon: true },
+];
 ---
 
 <PageLayout
   title="Act II: Building an Engineer"
-  description="Coming soon — the chapter covering Meisel and the early GimmalSoft years."
+  description="Hanson: an unexpected move to Ohio, sales quoting software across five regions, and years on the road with the team. Meisel and Gimmal are still being written."
 >
   <BackLink href="/career">Back to My Career</BackLink>
 
@@ -22,12 +41,341 @@ const next = { href: "/career/act-iii", label: "Act III" };
     </h1>
   </header>
 
+  <ChapterTOC sections={sections} class="mb-10" />
+
   <div
     class="prose prose-neutral dark:prose-invert max-w-none prose-a:text-brand-600 dark:prose-a:text-brand-300 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none"
   >
-    <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic">
-      Coming soon. Covers <a href="/career#meisel">Meisel</a> and the early
-      years at <a href="/career#morae-gimmal">GimmalSoft</a>.
+    <h2 id="hanson">Hanson</h2>
+
+    <h3 id="an-unexpected-offer">An Unexpected Offer</h3>
+
+    <p>
+      While working on a particularly difficult issue with Magic Help Desk's
+      Change Management module, I received an email from Kevin, the Region
+      Finance Manager for the Northeast Area. Somehow, my name had come up as
+      a possible candidate for a database administrator position in his
+      region, and he wanted to know if I was interested.
+    </p>
+
+    <p>
+      I had absolutely no idea what that entailed, but the pay increase was
+      worth investigating, especially since I was only 25 at the time.
+    </p>
+
+    <p>
+      Kevin's boss was Bob, the president of the Northeast Region, so I knew
+      the opportunity had some real clout behind it. After a quick phone
+      interview where Kevin learned a little about me and introduced me to
+      the position, he invited me to fly to Columbus for a face-to-face
+      interview with him and Bob.
+    </p>
+
+    <p>
+      I had never been to Ohio before. I remember liking the Columbus airport
+      and thinking downtown looked quite nice, at least the parts I saw. The
+      interview and dinner went well, and they offered me the position. Of
+      course, they understood that I needed to discuss it with my wife.
+    </p>
+
+    <p>
+      We realized this would mean uprooting our lives and leaving the state
+      we had called home since we were young kids. We had only been married
+      a short while, though, so it didn't seem like as big of a deal as it
+      would today.
+    </p>
+
+    <p>We decided to give it a shot.</p>
+
+    <h3 id="a-week-in-ohio">A Week in Ohio</h3>
+
+    <p>
+      We contacted a realtor, prepared our house as best we could, and put it
+      on the market. Hanson worked with a relocation service that flew us to
+      Columbus for a week, giving us a chance to learn the area and find
+      somewhere to live.
+    </p>
+
+    <p>
+      We explored towns like Hilliard, Dublin, Westerville, and Pickerington.
+      We took a quick drive through parts of <a href="https://en.wikipedia.org/wiki/Ohio_State_University" target="_blank" rel="noopener noreferrer">The Ohio State University</a> and
+      spent time getting familiar with a city that might soon become our
+      home.
+    </p>
+
+    <p>But we had a hankerin' for some Chicago pizza.</p>
+
+    <p>
+      So we hopped in the car, called our cousins in Oak Park, Illinois, and
+      asked if they wanted to grab some <a href="https://en.wikipedia.org/wiki/Gino%27s_East" target="_blank" rel="noopener noreferrer">Gino's East</a>. We drove through Fort
+      Wayne, Valparaiso, and Gary until we reached Chicago and encountered
+      toll roads we were absolutely not prepared for. We ate great pizza,
+      shared plenty of laughs, and enjoyed time with our family. We stayed in
+      a hotel overnight, then drove back the next day through Indianapolis
+      while watching our clocks do some fun things as we crossed back and
+      forth between time zones.
+    </p>
+
+    <p>
+      By the time we returned to Texas, we thought we had found an apartment
+      complex in Pickerington where we would like to live.
+    </p>
+
+    <p>Now we just needed our house to sell.</p>
+
+    <h3 id="building-a-better-quote">Building a Better Quote</h3>
+
+    <p>
+      Around this time, I started working with the new team. We were
+      designing sales quoting software that would help the sales team
+      quickly build complex quotes for our pipe and precast business. The
+      project represented five territories across the United States and Canada:
+      Northeast, Northwest, Southeast, South Central, and Southwest.
+    </p>
+
+    <p>
+      My job was to keep the Northeast Region's price sheet up to date in the
+      backend database. How much did twelve-inch pipe of a certain thickness
+      cost per lineal foot? That was the kind of question the software
+      needed to answer.
+    </p>
+
+    <p>
+      The Canadian regions introduced another layer of complexity. We knew
+      that one inch equaled 25.4 millimeters, but that didn't mean a
+      twelve-inch pipe was called a 304.8-millimeter pipe. It was called a
+      300-millimeter pipe. Some conversions were rounded according to the
+      terminology used by the industry, while others needed to remain
+      precise. We couldn't simply multiply everything by 25.4 and assume the
+      answer would make sense to the people using the software.
+    </p>
+
+    <p>
+      Then there was currency. Prices had to account for the differences
+      between U.S. and Canadian dollars, adding one more set of rules to a
+      system that was already full of regional products, measurements,
+      pricing, and business logic.
+    </p>
+
+    <p>
+      The project was spearheaded primarily by Milt from Tampa and Shelley,
+      our project manager from Cincom Systems. We had a huge, amazing team,
+      with a core group consisting of Glenn, Joel, Carissa, AD, Dan from
+      Saratoga Systems, Brian from Cincom, and me. We also coordinated with
+      numerous people throughout the different regions, gathering their
+      input and learning how each part of the business operated.
+    </p>
+
+    <p>
+      The software itself was a strange hodgepodge of technologies and
+      integrations. We used <a href="https://en.wikipedia.org/wiki/.NET_Framework" target="_blank" rel="noopener noreferrer">.NET</a> alongside Cincom's Socrates software, a <a href="https://en.wikipedia.org/wiki/Delphi_(software)" target="_blank" rel="noopener noreferrer">Delphi</a>-based
+      dynamic configurator that generated the user interface. Saratoga
+      Systems' iAvenue served as our local database, with <a href="https://en.wikipedia.org/wiki/Component_Object_Model" target="_blank" rel="noopener noreferrer">COM</a>
+      integrations tying pieces of the system together.
+    </p>
+
+    <p>
+      The software would periodically "call home," synchronizing each local
+      database with a global database. I was responsible for maintaining the
+      Northeast Region's pricing data in that global system.
+    </p>
+
+    <p>
+      When the project began, we traveled to different locations so the team
+      could work together, plan, get up to speed, and make forward progress.
+      We often gathered in Hanson's Irving or Las Colinas offices, at
+      Cincom's office in Cincinnati, or at the Hanson office in Green Cove
+      Springs, Florida.
+    </p>
+
+    <p>
+      As we completed each region, we held a huge rollout meeting with the
+      sales team and company executives. There was wining and dining, and I
+      finally had the opportunity to meet many of the people I had
+      previously known only as voices on the other end of a help desk call.
+    </p>
+
+    <p>It felt like we were on top of the world.</p>
+
+    <h3 id="becoming-a-developer">Becoming a Developer</h3>
+
+    <p>
+      During one of those rollout meetings, I remember sitting in a hotel hallway
+      with Brian and Shelley. I was curious, so I started asking questions
+      about the code and how all the different pieces worked together.
+      Brian took the time to show me, and it didn't take long for him to
+      realize that the code wasn't foreign to me.
+    </p>
+
+    <p>
+      Brian began working his way up the chain, asking whether I could
+      become one of the developers on the project.
+    </p>
+
+    <p>There was no hesitation. The executives approved the change.</p>
+
+    <p>
+      Instead of entering data, I was now learning how Socrates and iAvenue
+      worked and how we used .NET as the harness that held everything
+      together. Brian became my development partner, while Milt and Shelley
+      continued leading the team.
+    </p>
+
+    <p>The four of us worked like a family: We laughed. We fought. We ate.</p>
+
+    <p>And we traveled almost every single week.</p>
+
+    <h3 id="life-on-the-road">Life on the Road</h3>
+
+    <p>
+      We met in cities across the United States and Canada: Tampa,
+      Cincinnati, St. Augustine, Miami, Pittsburgh, Portland, Sacramento,
+      Toronto, Windsor, and plenty of places in between. I've been blessed
+      with fond memories from every one of them.
+    </p>
+
+    <p>
+      We spent a lot of time in Tampa, hanging out at Milt's house, visiting
+      his favorite places, and getting to know his grown kids.
+    </p>
+
+    <p>
+      When we worked in Cincinnati, I would often fly into Dayton and drive
+      south to West Chester, while Milt would fly into Cincinnati. We spent
+      long hours in hotel lobbies slinging code, then relaxed over dinner and wine at
+      Jag's Steak &amp; Seafood. Before flying home, I would sometimes stay
+      overnight in Dayton and catch a movie by myself. As much as I enjoyed
+      traveling with the team, I also enjoyed those quiet evenings and the
+      rare opportunity to spend a little time alone.
+    </p>
+
+    <p>
+      In St. Augustine, we sat on the beach and explored the <a href="https://en.wikipedia.org/wiki/Castillo_de_San_Marcos" target="_blank" rel="noopener noreferrer">Castillo de
+      San Marcos</a> and the <a href="https://en.wikipedia.org/wiki/St._Augustine_Lighthouse" target="_blank" rel="noopener noreferrer">St. Augustine Lighthouse</a>. From the windows of the
+      Miami Marriott Biscayne Bay, we watched as a Category 1 hurricane moved
+      through the city.
+    </p>
+
+    <p>
+      Toronto brought a different set of memories. I remember leaving the
+      airport and having to remind myself that the speed limit was measured
+      in kilometers per hour rather than miles per hour as I drove toward
+      Cambridge. I tried <a href="https://en.wikipedia.org/wiki/Poutine" target="_blank" rel="noopener noreferrer">poutine</a>, and we drove along the <a href="https://en.wikipedia.org/wiki/Queen_Elizabeth_Way" target="_blank" rel="noopener noreferrer">Queen Elizabeth
+      Way</a> to see <a href="https://en.wikipedia.org/wiki/Niagara_Falls" target="_blank" rel="noopener noreferrer">Niagara Falls</a>. Even the ordinary parts of those trips,
+      like navigating unfamiliar roads in a rental car, felt like an
+      adventure.
+    </p>
+
+    <p>
+      Milt took us to his hometown of Pittsburgh and showed us pieces of his
+      life. I remember flying into the airport, driving through the <a href="https://en.wikipedia.org/wiki/Fort_Pitt_Tunnel" target="_blank" rel="noopener noreferrer">Fort
+      Pitt Tunnel</a>, and emerging to one of the most stunning views of a city
+      imaginable.
+    </p>
+
+    <p>That view is burned into my brain.</p>
+
+    <p>
+      Milt took us to a Pirates game at <a href="https://en.wikipedia.org/wiki/PNC_Park" target="_blank" rel="noopener noreferrer">PNC Park</a>, and we ate at the original <a href="https://en.wikipedia.org/wiki/Primanti_Bros." target="_blank" rel="noopener noreferrer">Primanti
+      Bros</a>. Those trips hold some of the most iconic memories of my life,
+      and they all happened within a relatively short period. I have enough
+      stories to fill an entire chapter.
+    </p>
+
+    <p>
+      But the places weren't what made those years special. It was the
+      people I experienced them with. The team had become my family, and
+      that is something I would never trade.
+    </p>
+
+    <h3 id="the-move-that-never-happened">The Move That Never Happened</h3>
+
+    <p>
+      As the project progressed, it became clear that our house wasn't going
+      to sell. The housing bubble was about to burst. Our home's value had
+      fallen, and no one seemed interested in buying in our area.
+    </p>
+
+    <p>
+      Joan was the president of the Southeast Region, based in Green Cove
+      Springs, Florida. She commanded a room when she entered, but never in
+      an overpowering way. You instinctively respected her, and you knew she
+      would return that respect with boldness and kindness at the same time.
+      You could be a little scared of her and admire her at once.
+    </p>
+
+    <p>
+      One day, Joan called and asked whether we had received any offers on
+      our house. When I dejectedly told her it had been crickets, she asked
+      a different question.
+    </p>
+
+    <p>"Do you even want to move?"</p>
+
+    <p>"I really don't," I admitted. "I love Texas."</p>
+
+    <p>"Then you don't have to move. Just continue working remotely like you have been."</p>
+
+    <p>
+      She didn't say it as a suggestion. She didn't say she would look into
+      it or see what she could do. It was a simple declaration, delivered
+      with enough authority that there was no doubt left in the
+      conversation.
+    </p>
+
+    <p>It was as good as done.</p>
+
+    <p>Joan wasn't even my boss.</p>
+
+    <p>
+      She made calls to Kevin and Bob, and that was the end of it. She even
+      arranged for me to transfer from Kevin's team to work for AD. There
+      were no hard feelings. By that point, I was doing far more development
+      work than data entry anyway.
+    </p>
+
+    <p>We could stay home.</p>
+
+    <h3 id="one-more-opportunity">One More Opportunity</h3>
+
+    <p>
+      Eventually, the travel began to wind down, and we spent more time
+      working from the Las Colinas office. One day, I decided to look on <a href="https://en.wikipedia.org/wiki/Craigslist" target="_blank" rel="noopener noreferrer">Craigslist</a> to
+      see whether there were any part-time development jobs available.
+    </p>
+
+    <p>
+      I had no intention of leaving Hanson. I truly enjoyed working there. I
+      simply wanted more opportunities to write software and continue
+      learning.
+    </p>
+
+    <p>
+      I found a listing for part-time work with Meisel, a company in
+      Carrollton, Texas. Like most of my job interviews up to that point,
+      the process was surprisingly simple. Brad and George asked about my
+      experience but didn't require a coding exercise or put me through a
+      complicated technical interview.
+    </p>
+
+    <p>They took a gamble on me, just as Rob and Kevin had before them.</p>
+
+    <p>
+      The tasks Brad gave me weren't overly complicated, but I still had
+      plenty to learn. I didn't know <a href="https://en.wikipedia.org/wiki/Windows_Forms" target="_blank" rel="noopener noreferrer">WinForms</a> particularly well. I was still
+      a junior developer. But with every assignment, I did the best work I
+      could and tried to meet the standards Brad and George expected.
+    </p>
+
+    <p>That continued for nine months.</p>
+
+    <p>Then they made me an offer.</p>
+
+    <p>"Kyle, we'd like you to come work for Meisel full-time."</p>
+
+    <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic mt-8">
+      Meisel and the early years at <a href="/career#morae-gimmal" class="underline">GimmalSoft</a> are still being
+      written.
     </p>
   </div>
 
