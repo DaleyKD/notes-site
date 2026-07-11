@@ -35,6 +35,11 @@ interface Certification {
   issued: string;
 }
 
+interface TechnicalSkillCategory {
+  category: string;
+  skills: string[];
+}
+
 const experience: Company[] = [
   {
     id: "morae-gimmal",
@@ -115,6 +120,152 @@ const certifications: Certification[] = [
     link: "https://www.comptia.org",
     issuer: "CompTIA",
     issued: "Dec 2000",
+  },
+];
+
+const technicalSkills: TechnicalSkillCategory[] = [
+  {
+    category: "Cloud (Azure)",
+    skills: [
+      "App Services",
+      "Container Apps",
+      "Azure Kubernetes Service",
+      "VM Scale Sets",
+      "Service Bus",
+      "Key Vault",
+      "App Config",
+      "Blob Storage",
+      "Storage Queues",
+      "Front Door",
+      "Application Insights",
+      "Azure Monitor",
+      "Log Analytics",
+      "Virtual Networks",
+      "Private Endpoints",
+      "Container Registry",
+      "Cloud Services (Extended Support)",
+      "Cost Management",
+    ],
+  },
+  {
+    category: "Identity & Security",
+    skills: [
+      "Duende IdentityServer",
+      "OAuth 2.0",
+      "OpenID Connect",
+      "JWT",
+      "Claims-Based Auth",
+      "SAML 2.0",
+      "Google Workspace Identity",
+      "RBAC",
+      "Managed Identity",
+      "Workload Identity (AKS)",
+    ],
+  },
+  {
+    category: "Containers & Architecture",
+    skills: [
+      "Multi-Tenant SaaS Architecture",
+      "Distributed Systems",
+      "Event-Driven Architecture",
+      "Microservices",
+      "BFF",
+      "Pub/Sub",
+      "Async Messaging",
+      "Docker",
+      "Kubernetes",
+      "Helm",
+      "RabbitMQ",
+      "HashiCorp Consul",
+    ],
+  },
+  {
+    category: ".NET & Backend",
+    skills: [
+      ".NET (Framework 2.0 → .NET 10)",
+      "ASP.NET Core",
+      "ASP.NET Core Identity",
+      "Entity Framework 6 / EF Core",
+      "ASP.NET MVC",
+      "NuGet",
+      "WCF",
+      "SOAP",
+      "ASP.NET Web Forms",
+      "WinForms",
+      "WPF (MVVM)",
+      "Silverlight",
+    ],
+  },
+  {
+    category: "Data",
+    skills: [
+      "SQL Server",
+      "Azure SQL",
+      "Elastic Pools",
+      "Azure Cosmos DB",
+      "MySQL",
+      "Database Design",
+      "Stored Procedures",
+      "Query Optimization",
+      "Indexing",
+      "Migrations",
+    ],
+  },
+  {
+    category: "APIs & Integration",
+    skills: ["REST APIs", "OpenAPI / Swagger", "API Versioning", "OData", "JSON", "XML/XSLT"],
+  },
+  {
+    category: "DevOps & Quality",
+    skills: [
+      "Git",
+      "GitHub",
+      "Azure DevOps (Pipelines, Repos, Boards, Artifacts)",
+      "GitHub Actions",
+      "CI/CD",
+      "Infrastructure as Code",
+      "Terraform",
+      "Bicep / ARM Templates",
+      "TFS",
+      "Unit Testing",
+      "xUnit",
+      "MSTest",
+    ],
+  },
+  {
+    category: "SharePoint",
+    skills: [
+      "SharePoint (2013 → Online)",
+      "SPFx",
+      "Migration",
+      "Add-Ins",
+      "SSOM / CSOM",
+    ],
+  },
+  {
+    category: "Frontend",
+    skills: [
+      "React",
+      "Astro",
+      "Tailwind CSS",
+      "Vite",
+      "Kendo UI",
+      "Webpack",
+      "HTML5",
+      "CSS3",
+      "Sass/SCSS",
+      "Bootstrap",
+      "jQuery",
+      "Knockout.js",
+    ],
+  },
+  {
+    category: "Languages",
+    skills: ["C#", "TypeScript", "JavaScript", "SQL", "VB.NET"],
+  },
+  {
+    category: "AI-Assisted Development",
+    skills: ["Claude Code", "GitHub Copilot"],
   },
 ];
 
@@ -279,9 +430,18 @@ const chaptersTocSections = [
     </div>
 
     <h2 id="technical-skills">Technical Skills</h2>
-    <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic">
-      Résumé content coming soon.
-    </p>
+    <div class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+      {technicalSkills.map((group) => (
+        <div>
+          <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-1">
+            {group.category}
+          </h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+            {group.skills.join(" · ")}
+          </p>
+        </div>
+      ))}
+    </div>
 
     <h2 id="education">Education &amp; Certifications</h2>
     <div class="not-prose space-y-6">
