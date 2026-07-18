@@ -21,14 +21,24 @@ const sections = [
       { id: "one-more-opportunity", label: "One More Opportunity" },
     ],
   },
-  { id: "meisel", label: "Meisel", comingSoon: true },
+  {
+    id: "meisel",
+    label: "Meisel",
+    subsections: [
+      { id: "the-next-opportunity", label: "The Next Opportunity" },
+      { id: "a-place-called-meisel", label: "A Place Called Meisel" },
+      { id: "following-my-curiosity", label: "Following My Curiosity" },
+      { id: "investing-in-people", label: "Investing in People" },
+      { id: "more-than-coworkers", label: "More Than Coworkers" },
+    ],
+  },
   { id: "gimmal", label: "Gimmal", comingSoon: true },
 ];
 ---
 
 <PageLayout
   title="Act II: Building an Engineer"
-  description="Hanson: an unexpected move to Ohio, sales quoting software across five regions, and years on the road with the team. Meisel and Gimmal are still being written."
+  description="Hanson: an unexpected move to Ohio, sales quoting software across five regions, and years on the road with the team. Meisel: leaving Hanson behind for a small software company in Carrollton. Gimmal is still being written."
 >
   <BackLink href="/career">Back to My Career</BackLink>
 
@@ -170,8 +180,8 @@ const sections = [
       The software itself was a strange hodgepodge of technologies and
       integrations. We used <a href="https://en.wikipedia.org/wiki/.NET_Framework" target="_blank" rel="noopener noreferrer">.NET</a> alongside Cincom's Socrates software, a <a href="https://en.wikipedia.org/wiki/Delphi_(software)" target="_blank" rel="noopener noreferrer">Delphi</a>-based
       dynamic configurator that generated the user interface. Saratoga
-      Systems' iAvenue served as our local database, with <a href="https://en.wikipedia.org/wiki/Component_Object_Model" target="_blank" rel="noopener noreferrer">COM</a>
-      integrations tying pieces of the system together.
+      Systems' iAvenue served as our local database, with <a href="https://en.wikipedia.org/wiki/Component_Object_Model" target="_blank" rel="noopener noreferrer">COM</a> integrations
+      tying pieces of the system together.
     </p>
 
     <p>
@@ -373,9 +383,467 @@ const sections = [
 
     <p>"Kyle, we'd like you to come work for Meisel full-time."</p>
 
+    <h2 id="meisel">Meisel</h2>
+
+    <h3 id="the-next-opportunity">The Next Opportunity</h3>
+
+    <p>Leaving Hanson wasn't easy.</p>
+
+    <p>
+      What started as a help desk job had turned into so much more. Somewhere
+      between airports, hotel lobbies, rollout meetings, late nights writing
+      code, and countless meals together, my coworkers had become family.
+    </p>
+
+    <p>Milt especially.</p>
+
+    <p>
+      He insisted I walked like Big Bird from <em>Sesame Street</em>, and
+      somehow the nickname stuck. We logged thousands of miles together,
+      explored cities all over North America, argued over software,
+      discovered new restaurants, and laughed until our sides hurt. Years
+      later, I found the email he sent after I left Hanson. One line stood
+      out above the rest:
+    </p>
+
+    <blockquote>
+      <p>I stopped thinking about you as a business co-worker long ago.</p>
+    </blockquote>
+
+    <p>
+      He's absolutely right. It was evident to us and everyone around that
+      we were family.
+    </p>
+
+    <p>
+      The funny thing is that I never set out to leave Hanson in the first
+      place. Looking for a part-time development job wasn't an exit strategy.
+      I genuinely enjoyed working there. I simply wanted to keep learning.
+      Brad and George gave me that opportunity, and for nine months I spent
+      my evenings writing software for Meisel while continuing my full-time
+      job at Hanson.
+    </p>
+
+    <p>Then they made me an offer.</p>
+
+    <p>
+      Leaving meant saying goodbye to people who had shaped me, encouraged
+      me, challenged me, and become lifelong friends. It wasn't an easy
+      decision, but I knew it was the right one.
+    </p>
+
+    <p>
+      And again, without even realizing it, I found myself standing at
+      another unexpected fork. This one didn't lead to another airport or another city.
+      It led to a small printing company tucked away near the corner of
+      Valwood Parkway and Luna Road in Carrollton.
+    </p>
+
+    <h3 id="a-place-called-meisel">A Place Called Meisel</h3>
+
+    <p>
+      The building wasn't particularly impressive from the outside, but I
+      can still picture it almost perfectly.
+    </p>
+
+    <p>
+      Downstairs were the account representatives, our tiny two-person IT
+      department, the server room, the art department, and a warehouse full
+      of equipment that fascinated me from the day I walked in. Upstairs sat
+      sales, accounting, George's office, Brad's office, and my little corner
+      of the development team. My cubicle was part of a group of four just
+      outside George's office, while Brad occupied the office next door.
+    </p>
+
+    <p>George's door was almost always open.</p>
+
+    <p>
+      He wasn't my direct manager. Brad filled that role. George was my
+      boss's boss, the company president, our product owner, and, more often
+      than not, our QA department. For someone carrying that many
+      responsibilities, he was remarkably approachable. If you needed to ask
+      a question, bounce around an idea, or admit you were stuck, you simply
+      walked into his office.
+    </p>
+
+    <p>
+      George was from Connecticut, loved golf, and always seemed to wear a
+      smile. I honestly don't remember ever seeing him lose his temper. He
+      was calm without being passive, decisive without being intimidating,
+      and deeply knowledgeable about the printing business. Every feature we
+      discussed, every workflow we designed, and every decision we made was
+      rooted in his understanding of how the company actually operated.
+    </p>
+
+    <p>
+      We didn't run Scrum. There were no daily standups or sprint
+      retrospectives. SharePoint loosely tracked our work, but most of our
+      planning happened in the meeting room with a projector, a keyboard, and
+      the three of us talking through whatever problem sat in front of us.
+    </p>
+
+    <p>
+      George understood the business better than anyone I'd ever met. Brad
+      taught me how to build software that served it. I found myself
+      learning from both of them every single day.
+    </p>
+
+    <p>
+      Brad and I quickly settled into a rhythm that would define my years at
+      Meisel.
+    </p>
+
+    <p>
+      Most days I'd pull up the straight-backed visitor chair in his office
+      while he sat behind his desk. We'd talk about whatever we were working
+      on, brainstorm solutions, or chase down bugs that had somehow escaped
+      us. Just as often, we'd stop talking about software altogether.
+    </p>
+
+    <p>
+      We talked about marching band a lot. I played trumpet. Brad played
+      trombone and had marched with the University of Texas. It didn't take
+      long for us to discover we spoke the same language. He loved airplanes
+      and was always checking FlightAware to see what was flying overhead.
+      He also rode recumbent bicycles. His dad worked for a company that
+      manufactured industrial trackballs, and Brad used one every day
+      instead of a mouse.
+    </p>
+
+    <p>He swore it was more ergonomic. <em>I couldn't stand the thing.</em></p>
+
+    <p>
+      Lunch became just as much a part of our routine as Visual Studio. We'd
+      usually head toward the old Hanson stomping grounds around I-635 and
+      MacArthur. Taco Bueno, Chipotle, Whataburger, Steak 'n Shake. Sometimes
+      we'd run a quick errand while we were out, but we tried to be
+      respectful of the flexibility George gave us. Nobody was watching the
+      clock. That trust made us want to honor it.
+    </p>
+
+    <p>
+      Over time, Brad stopped feeling like my manager and started feeling
+      like my brother.
+    </p>
+
+    <p>
+      Almost every day we worked side by side as coworkers and friends. Once
+      or twice a year we'd have to switch gears and pretend to be boss and
+      employee for a performance review. It always felt awkward because it
+      wasn't really who we were the other 363 days of the year.
+    </p>
+
+    <p>Life happened in that office.</p>
+
+    <p>
+      I walked with Brad through his divorce and saw firsthand how difficult
+      that season was for his family. Later, I celebrated with him as he
+      married Jessica, and I'm grateful to see them still happily together
+      today.
+    </p>
+
+    <p>When I think about Meisel, I don't immediately think about software.</p>
+
+    <p>I think about that straight-backed chair in Brad's office.</p>
+
+    <p>
+      That's where I learned some of the most important lessons of my
+      career, and very few of them had anything to do with writing code.
+    </p>
+
+    <h3 id="following-my-curiosity">Following My Curiosity</h3>
+
+    <p>
+      Most of my day revolved around FocalPoint, Meisel's custom <a href="https://en.wikipedia.org/wiki/Enterprise_resource_planning" target="_blank" rel="noopener noreferrer">ERP</a> system.
+    </p>
+
+    <p>
+      It wasn't something you could buy off the shelf. It was software built
+      specifically for Meisel, by Meisel, shaped by years of experience in
+      the printing industry and constantly evolving alongside the business.
+      It existed for one reason: to help Meisel run its business. Every new
+      feature solved a real problem for someone upstairs, downstairs, or in
+      the warehouse.
+    </p>
+
+    <p>
+      The application itself was written in <a href="https://en.wikipedia.org/wiki/Visual_Basic_.NET" target="_blank" rel="noopener noreferrer">VB.NET</a> on <a href="https://en.wikipedia.org/wiki/.NET_Framework" target="_blank" rel="noopener noreferrer">.NET Framework</a> 3.5, and we
+      spent our days inside Visual Studio 2008. Brad maintained an older ORM
+      called DeKlarit that only worked in Visual Studio 2005, generating our
+      DataSets, DataTables, and TableAdapters. We used Redgate to migrate
+      database schema changes between environments, <a href="https://en.wikipedia.org/wiki/ClickOnce" target="_blank" rel="noopener noreferrer">ClickOnce</a> deployed
+      updates to everyone's computer, and Infragistics supplied most of our
+      user interface controls.
+    </p>
+
+    <p>I had a love-hate relationship with the Infragistics UltraGrid.</p>
+
+    <p>
+      It was incredibly powerful, but it could also be incredibly slow if
+      you weren't careful. George had developed a very specific style for
+      how he wanted grids to behave. Required fields were highlighted in a
+      soft yellow. Certain data types would have specified ways to be
+      displayed. Layouts stayed consistent from screen to screen. Users
+      shouldn't have to relearn the software every time they opened another
+      window. At the time, I simply thought, "This is how George likes it."
+      Over the years, I've come to appreciate how much thought he had put
+      into making software comfortable for the people who spent all day
+      using it.
+    </p>
+
+    <p>
+      The most detailed form in the application centered around an Order. One of
+      its tabs displayed every Order Item, and every one of those items was
+      represented by a user control called <code>ucOrderItem</code>. Each
+      control contained several Infragistics controls of its own, including
+      another UltraGrid. It worked well enough, but once an order became
+      large, that tab took forever to load. If somebody handed me that code
+      today, I'd love another shot at it.
+    </p>
+
+    <p>
+      As much as I enjoyed writing software, I don't think I ever viewed my
+      job as just sitting in a cubicle writing code.
+    </p>
+
+    <p>I loved wandering downstairs. The warehouse fascinated me.</p>
+
+    <p>
+      Customers would send us Adobe Illustrator files, Photoshop documents,
+      EPS artwork, and PDFs. Those files first landed with the art
+      department, where they cleaned everything up and made sure it was
+      ready for production. From there, the warehouse took over. Watching an
+      Illustrator file become a giant printed display was just plain cool.
+      Huge printers covered sheets of media that seemed impossibly large.
+      Some jobs were mounted to foam board. Others were laminated, trimmed,
+      or assembled into displays that would eventually end up in stores all
+      over the country.
+    </p>
+
+    <p>Then someone had to figure out how to package all of it.</p>
+
+    <p>That part fascinated me just as much.</p>
+
+    <p>
+      It wasn't enough to print something that looked great. It had to
+      survive forklifts, conveyor belts, trucks, delivery drivers, and
+      everything else between Carrollton and the customer. I worked closely
+      with Daniel, who led the shipping and packaging department, and the
+      more time I spent with him, the more I realized how many problems
+      existed that software could actually help solve.
+    </p>
+
+    <p>One of the biggest projects we worked on together was shipping.</p>
+
+    <p>
+      FocalPoint already managed orders, but we built one of the largest
+      grids in the application to organize shipments and keep track of every
+      FedEx and UPS tracking number. We integrated with their <a href="https://en.wikipedia.org/wiki/SOAP" target="_blank" rel="noopener noreferrer">SOAP</a> web
+      services so employees could see shipment status without bouncing
+      between different websites. It wasn't glamorous work, but it solved
+      real problems for the people using it every day, and those were always
+      my favorite kinds of projects.
+    </p>
+
+    <p>
+      Around that same time, Meisel expanded into the suite next door and
+      converted most of it into additional warehouse space. Suddenly
+      inventory became a much bigger challenge, which led us to another
+      project I thoroughly enjoyed.
+    </p>
+
+    <p>
+      We built an inventory management system around Motorola MC9090G
+      handheld scanners running the <a href="https://en.wikipedia.org/wiki/.NET_Compact_Framework" target="_blank" rel="noopener noreferrer">.NET Compact Framework</a>.
+    </p>
+
+    <p>
+      I had never written software for a handheld device before, so that
+      alone was exciting. But just like everything else at Meisel, the
+      project quickly became about much more than writing code.
+    </p>
+
+    <div class="my-6 space-y-1 border-l-2 border-neutral-300 dark:border-neutral-700 pl-4 italic">
+      <p class="my-1">Where should the wireless access points go?</p>
+      <p class="my-1">Would the scanners keep a reliable connection everywhere in the warehouse?</p>
+      <p class="my-1">Were there dead spots?</p>
+      <p class="my-1">How much overlap between access points was enough?</p>
+    </div>
+
+    <p>
+      None of those questions had anything to do with VB.NET, but I loved
+      learning about them anyway.
+    </p>
+
+    <p>Then there were the labels.</p>
+
+    <p>
+      We used Zebra thermal printers throughout the warehouse, so I found
+      myself learning Zebra Programming Language, Eltron Programming
+      Language, and <a href="https://en.wikipedia.org/wiki/Code_39" target="_blank" rel="noopener noreferrer">Code 39</a> barcodes so we could generate labels for
+      inventory and shipping. If you had told the twenty-year-old version of
+      me that I'd someday be writing software for handheld barcode scanners
+      while worrying about Wi-Fi coverage and printer languages, I never
+      would have believed you.
+    </p>
+
+    <p>
+      That's one of the things I loved most about Meisel. There were no
+      walls between departments.
+    </p>
+
+    <p>If I wanted to spend time downstairs with Daniel, nobody questioned it.</p>
+
+    <p>
+      If I wanted to hang around the server room with Butch and Xander, the
+      door was always open. They never treated infrastructure as some secret
+      club that developers weren't allowed to touch. They were always
+      willing to teach us something new, and just as willing to hear our
+      ideas if we thought we could help. I learned a tremendous amount
+      simply by spending time with people who enjoyed what they did.
+    </p>
+
+    <h3 id="investing-in-people">Investing in People</h3>
+
+    <p>
+      At some point, Brad and I came up with a crazy idea. What if Meisel
+      sent us to DevConnections in Las Vegas? We knew Meisel didn't have any
+      type of real training budget, so we never expected George to say yes.
+      Somehow, he did. In April 2010, Brad and I headed to Las Vegas to
+      learn about .NET Framework 4.0, Visual Studio 2010, and everything
+      Microsoft had coming next.
+    </p>
+
+    <p>
+      We stayed at Mandalay Bay and spent our days bouncing between sessions
+      before wandering the Strip at night. We walked through Caesars
+      Palace, admired stores we couldn't afford to shop in, and ate an
+      incredible buffet at Paris under what looked like a painted cerulean
+      sky. It was one of those trips where you spent all day learning and
+      all evening talking about what you had learned.
+    </p>
+
+    <p>
+      I remember <a href="https://en.wikipedia.org/wiki/Bob_Muglia" target="_blank" rel="noopener noreferrer">Bob Muglia</a> delivering one of the keynote
+      presentations. At the time he was leading Microsoft's Server and Tools
+      Business, though I don't think I appreciated just how influential he
+      was. I was simply excited to hear directly from the people building
+      the platform we spent every day using.
+    </p>
+
+    <p>One session in particular has stayed with me.</p>
+
+    <p>
+      Stephen Toub gave a presentation on the new concurrency features
+      coming to .NET 4. At the time, I had no idea who he was. I just
+      remember sitting there thinking, "This guy is brilliant."
+    </p>
+
+    <p>
+      As the years went by, I started seeing his name everywhere. Blog
+      posts. Answers on Stack Overflow. Deep dives into the <a href="https://en.wikipedia.org/wiki/Parallel_Extensions" target="_blank" rel="noopener noreferrer">Task Parallel
+      Library</a> and asynchronous programming. Whenever Stephen Toub wrote
+      something, I knew it was worth reading. It eventually dawned on me
+      that I'd unknowingly spent an afternoon learning from someone who
+      would become one of my most trusted sources on .NET concurrency.
+    </p>
+
+    <p>
+      As soon as Brad and I got back to the office, we upgraded FocalPoint
+      to Visual Studio 2010 and .NET Framework 4. We didn't spend weeks
+      planning the migration. We were excited, so we did it. The
+      improvements were noticeable almost immediately, and one of the first
+      places we put the new concurrency features to work was our shipment
+      tracking updates. Instead of refreshing tracking numbers one request
+      at a time, we used <code>Parallel.ForEach</code> to process multiple
+      requests concurrently. It wasn't the kind of feature customers would
+      ever notice, but we noticed it, and so did the people in the warehouse
+      who depended on that information every day.
+    </p>
+
+    <h3 id="more-than-coworkers">More Than Coworkers</h3>
+
+    <p>
+      Around this time, our little development team also grew when Clayton
+      joined us. Clayton was one of those people who always seemed to be
+      building or fixing something. He was one of the biggest DIYers I've
+      ever met. Whether it was working on cars, building something around
+      the house, or tinkering with a new idea, he was always learning and
+      figuring out how things worked.
+    </p>
+
+    <p>
+      What made him even more interesting was that he hadn't taken the
+      typical path into software. He had majored in Psychology simply
+      because he wanted to study something completely different. That same
+      curiosity seemed to carry over into everything he did, and I think it
+      was one of the things that made him such a great developer.
+    </p>
+
+    <p>
+      Before long, Brad, Clayton, and I had settled into our own routine of
+      regular lunches at Tokyo Teriyaki. We all just called it "Tokyo T,"
+      and I don't think I ever ordered anything besides the number one with
+      no slaw, extra rice, and extra protein.
+    </p>
+
+    <p>
+      Those lunches became one of my favorite parts of the week. We'd just
+      talk like three guys who had been friends for a lifetime. Years after
+      we had all left Meisel, we'd still find ourselves back at Tokyo T
+      every now and then, picking up right where we left off.
+    </p>
+
+    <p>
+      Unfortunately, business slowed, and Meisel eventually had to make the
+      difficult decision to reduce its workforce. Clayton was one of the
+      people affected, and it was hard to see him go. Losing a coworker is
+      never easy, but it was especially difficult because by that point he
+      had become a good friend.
+    </p>
+
+    <p>
+      Thankfully, losing the job didn't mean losing the friendship. We
+      stayed in touch, and over the years Clayton became one of those people
+      I no longer think of as a former coworker. He's one of my closest
+      friends.
+    </p>
+
+    <p>
+      By this point, FocalPoint still consumed most of my time, but it
+      wasn't the only product we were building.
+    </p>
+
+    <p>
+      One of our products, ReadyLink, allowed <a href="https://en.wikipedia.org/wiki/Army_%26_Air_Force_Exchange_Service" target="_blank" rel="noopener noreferrer">AAFES</a> stores to order custom
+      marketing materials directly from us. Around the same time, I was
+      given the opportunity to build something entirely my own.
+    </p>
+
+    <p>
+      Using <a href="https://en.wikipedia.org/wiki/ASP.NET_MVC" target="_blank" rel="noopener noreferrer">ASP.NET MVC</a>, I built a web application that allowed customers
+      to upload enormous PDF, AI, and EPS files directly to Meisel. Some of
+      those files were larger than <a href="https://en.wikipedia.org/wiki/Internet_Information_Services" target="_blank" rel="noopener noreferrer">IIS</a> wanted to accept, so handling them
+      took a little creativity. Once the upload finished, <a href="https://en.wikipedia.org/wiki/ImageMagick" target="_blank" rel="noopener noreferrer">ImageMagick</a> generated
+      thumbnails of the artwork, the files were stored on our
+      internal servers, and email notifications were automatically sent to
+      both the account representatives and the art department so everyone
+      knew new work had arrived.
+    </p>
+
+    <p>As a junior developer, I thought that was pretty stinking cool.</p>
+
+    <p>
+      Then one day, out of the blue, I received a call from an old college
+      buddy.
+    </p>
+
+    <p>"Kyle."</p>
+
+    <p>"It's Damon."</p>
+
     <p class="not-prose text-sm text-neutral-500 dark:text-neutral-400 italic mt-8">
-      Meisel and the early years at <a href="/career#morae-gimmal" class="underline">GimmalSoft</a> are still being
-      written.
+      The early years at <a href="/career#morae-gimmal" class="underline">GimmalSoft</a> are still being written.
     </p>
   </div>
 

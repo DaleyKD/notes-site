@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import Header from '../components/astro/Header.astro';
 import Footer from '../components/astro/Footer.astro';
 import { readingTime } from '../lib/readingTime';
+import { renderEmphasis } from '../lib/emphasis';
 
 interface Props {
   title: string;
@@ -45,9 +46,7 @@ const readTime = readingTime(rawContent);
             <span class="text-neutral-300 dark:text-neutral-600">·</span>
             <span class="text-orange-700 dark:text-orange-400">{readTime}</span>
           </div>
-          <h1 class="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-4">
-            {title}
-          </h1>
+          <h1 class="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-4" set:html={renderEmphasis(title)} />
           <p class="text-lg text-neutral-600 dark:text-neutral-300">{description}</p>
           {tags.length > 0 && (
             <div class="flex flex-wrap gap-2 mt-4">

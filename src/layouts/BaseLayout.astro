@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import ScrollToTop from '../components/react/ScrollToTop';
+import { stripEmphasis } from '../lib/emphasis';
 
 interface Props {
   title: string;
@@ -20,7 +21,8 @@ const {
   type = 'website',
 } = Astro.props;
 
-const siteTitle = title === 'Kyle Daley' ? 'Kyle Daley' : `${title} — Kyle Daley`;
+const plainTitle = stripEmphasis(title);
+const siteTitle = plainTitle === 'Kyle Daley' ? 'Kyle Daley' : `${plainTitle} — Kyle Daley`;
 const canonical = canonicalUrl ?? new URL(Astro.url.pathname, Astro.site).href;
 ---
 
