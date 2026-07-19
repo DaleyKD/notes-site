@@ -1,9 +1,10 @@
 ---
 import ThemeToggle from '../react/ThemeToggle';
 import MobileNav from '../react/MobileNav';
+import { chapters } from '../../data/chapters';
 
 const nav = [
-  { label: 'My Career', href: '/career' },
+  { label: 'My Career', href: '/career', children: chapters },
   { label: 'Notes', href: '/notes' },
   { label: 'About', href: '/about' },
 ];
@@ -21,18 +22,43 @@ const pathname = Astro.url.pathname;
     <!-- Nav -->
     <div class="flex items-center gap-1">
       <nav class="hidden sm:flex items-center gap-1">
-        {nav.map(({ label, href }) => (
-          <a
-            href={href}
-            class:list={[
-              'px-3 py-1.5 rounded-md text-sm transition-colors',
-              pathname === href || pathname.startsWith(href + '/')
-                ? 'text-neutral-900 dark:text-neutral-100 font-medium'
-                : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800',
-            ]}
-          >
-            {label}
-          </a>
+        {nav.map(({ label, href, children }) => (
+          <div class="relative group">
+            <a
+              href={href}
+              class:list={[
+                'px-3 py-1.5 rounded-md text-sm transition-colors',
+                pathname === href || pathname.startsWith(href + '/')
+                  ? 'text-neutral-900 dark:text-neutral-100 font-medium'
+                  : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800',
+              ]}
+            >
+              {label}
+            </a>
+
+            {children && (
+              <div class="absolute left-0 top-full pt-1 hidden group-hover:block group-focus-within:block z-50">
+                <div class="w-56 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-lg py-1">
+                  {children.map((chapter) => (
+                    <a
+                      href={chapter.href}
+                      class:list={[
+                        'block px-4 py-2 text-sm transition-colors',
+                        pathname === chapter.href
+                          ? 'text-neutral-900 dark:text-neutral-100 font-medium bg-neutral-50 dark:bg-neutral-800'
+                          : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800',
+                      ]}
+                    >
+                      {chapter.label}
+                      {chapter.note && (
+                        <span class="text-xs italic text-neutral-400 dark:text-neutral-600"> {chapter.note}</span>
+                      )}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         ))}
       </nav>
 

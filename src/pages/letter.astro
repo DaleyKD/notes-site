@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import CTAButton from '../components/astro/CTAButton.astro';
 ---
 
 <PageLayout title="Letter to the Reader" description="A letter to anyone who finds their way here.">
@@ -49,6 +50,10 @@ import PageLayout from '../layouts/PageLayout.astro';
 
       <p>Welcome. I'm glad you're here.</p>
 
+    </div>
+
+    <div class="not-prose flex justify-center mt-12">
+      <CTAButton href="/career/origins" label="Continue Reading" />
     </div>
   </article>
 </PageLayout>

@@ -1,6 +1,7 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
 import ChapterTOC from "../components/astro/ChapterTOC.astro";
+import { chapters } from "../data/chapters";
 import { ArrowRight } from "lucide-react";
 
 interface Role {
@@ -64,6 +65,7 @@ const experience: Company[] = [
         location: "Dallas, TX",
         start: "Aug 2011",
         end: "Aug 2014",
+        link: "/career/act-ii#gimmal",
       },
     ],
   },
@@ -280,12 +282,7 @@ const resumeTocSections = [
   { id: "education", label: "Education & Certifications" },
 ];
 
-const chaptersTocSections = [
-  { id: "origins", label: "Origins: Hall C", href: "/career/origins" },
-  { id: "act-i", label: "Act I: An Unexpected Fork", href: "/career/act-i" },
-  { id: "act-ii", label: "Act II: Building an Engineer", href: "/career/act-ii" },
-  { id: "act-iii", label: "Act III", href: "/career/act-iii", note: "(title TBD)" },
-];
+const chaptersTocSections = chapters;
 ---
 
 <PageLayout
