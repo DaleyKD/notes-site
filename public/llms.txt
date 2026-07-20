@@ -1,0 +1,28 @@
+# Kyle Daley
+
+> Software engineer and cloud architect (~20 years professional experience), writing about software engineering, cloud architecture, distributed systems, leadership, interviewing, and AI-assisted development, alongside notes on Christian faith, family, and hobbies. The site blends a résumé-style career history with narrative "chapters" and a running notes/essays collection.
+
+Kyle is a Christian first, then a husband and father of three; that ordering shapes the tone of the writing throughout the site. Professionally he has spent most of his career at Gimmal/Morae, working across cloud architecture (Azure), multi-tenant SaaS platforms, .NET, and DevOps.
+
+## Key pages
+
+- [Home](https://daleykd.com/): Introduction and recent notes.
+- [Letter to the Reader](https://daleykd.com/letter): The site's mission statement, why it exists and what to expect.
+- [About](https://daleykd.com/about): Bio, background, and what Kyle writes about.
+- [My Career](https://daleykd.com/career): Résumé-style professional experience, technical skills, education, and certifications, alongside links to the narrative career chapters.
+- [Career: Origins](https://daleykd.com/career/origins): Narrative chapter on how Kyle's career began.
+- [Career: Act I](https://daleykd.com/career/act-i): Narrative chapter on an unexpected fork into IT/software.
+- [Career: Act II](https://daleykd.com/career/act-ii): Narrative chapter on becoming a developer and engineer.
+- [Career: Act III](https://daleykd.com/career/act-iii): Narrative chapter covering more recent career history.
+- [Managers Who Have Influenced Me](https://daleykd.com/managers): A collection of the managers who shaped how Kyle leads and works today.
+- [Notes](https://daleykd.com/notes): Index of notes and essays on engineering, architecture, and faith.
+- [Now](https://daleykd.com/now): A periodically updated snapshot of current focus.
+
+## Notes
+
+Individual notes and essays are listed at [/notes](https://daleykd.com/notes) and linked from the [sitemap](https://daleykd.com/sitemap-index.xml). Each note page includes Article structured data (JSON-LD) with title, description, publish date, and author.
+
+## Contact
+
+- GitHub: https://github.com/DaleyKD
+- LinkedIn: https://linkedin.com/in/daleykd

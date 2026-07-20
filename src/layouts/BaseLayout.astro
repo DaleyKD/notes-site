@@ -10,6 +10,7 @@ interface Props {
   canonicalUrl?: string;
   publishedAt?: Date;
   type?: 'website' | 'article';
+  jsonLd?: Record<string, unknown>;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   canonicalUrl,
   publishedAt,
   type = 'website',
+  jsonLd,
 } = Astro.props;
 
 const plainTitle = stripEmphasis(title);
@@ -51,6 +53,9 @@ const canonical = canonicalUrl ?? new URL(Astro.url.pathname, Astro.site).href;
 
     <!-- RSS -->
     <link rel="alternate" type="application/rss+xml" title="Kyle Daley" href="/rss.xml" />
+
+    <!-- Structured data -->
+    {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 
     <!-- Dark mode: dark by default; only opt out if user has explicitly chosen light -->
     <script is:inline>

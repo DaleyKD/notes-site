@@ -1,11 +1,24 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
 import PhotoLightbox from "../components/react/PhotoLightbox";
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Kyle Daley",
+  url: "https://daleykd.com",
+  image: "https://daleykd.com/daleykd.jpg",
+  jobTitle: "Cloud Architect",
+  description:
+    "Software engineer and cloud architect with about twenty years of professional experience.",
+  sameAs: ["https://github.com/DaleyKD", "https://linkedin.com/in/daleykd"],
+};
 ---
 
 <PageLayout
   title="About"
   description="About Kyle Daley — software engineer, cloud architect, Christian, husband, and father of three."
+  jsonLd={personJsonLd}
 >
   <!-- Photo + name block -->
   <div class="flex flex-col sm:flex-row items-start gap-8 mb-12">

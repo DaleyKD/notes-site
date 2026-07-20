@@ -30,9 +30,25 @@ const updated = updatedAt?.toLocaleDateString('en-US', {
 });
 
 const readTime = readingTime(rawContent);
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: publishedAt.toISOString(),
+  ...(updatedAt && { dateModified: updatedAt.toISOString() }),
+  keywords: tags.join(', '),
+  author: {
+    '@type': 'Person',
+    name: 'Kyle Daley',
+    url: 'https://daleykd.com',
+  },
+  url: new URL(Astro.url.pathname, Astro.site).href,
+};
 ---
 
-<BaseLayout title={title} description={description} publishedAt={publishedAt} type="article">
+<BaseLayout title={title} description={description} publishedAt={publishedAt} type="article" jsonLd={articleJsonLd}>
   <div class="flex flex-col min-h-screen">
     <Header />
     <main class="flex-1 mx-auto w-full max-w-3xl px-4 sm:px-6 py-12">
