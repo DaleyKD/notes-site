@@ -4,6 +4,7 @@ description: "For years, I never questioned what I did. I simply wore whatever h
 publishedAt: 2026-07-18
 kind: note
 tags: [career, identity]
+featured: true
 ---
 
 One thing I've struggled with recently is figuring out what to call myself.

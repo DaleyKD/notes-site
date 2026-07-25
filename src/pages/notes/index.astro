@@ -3,8 +3,14 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import NoteCard from '../../components/astro/NoteCard.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
+const MAX_PINNED = 3;
+
 const allNotes = await getCollection('notes', (entry: CollectionEntry<'notes'>) => !entry.data.draft);
 const notes = allNotes.sort((a: CollectionEntry<'notes'>, b: CollectionEntry<'notes'>) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const pinned = notes.filter((note: CollectionEntry<'notes'>) => note.data.featured).slice(0, MAX_PINNED);
+const pinnedIds = new Set(pinned.map((note: CollectionEntry<'notes'>) => note.id));
+const rest = notes.filter((note: CollectionEntry<'notes'>) => !pinnedIds.has(note.id));
 ---
 
 <PageLayout title="Notes" description="All notes and essays — software engineering, architecture, faith, family, and what it means to do good work.">
@@ -17,22 +23,44 @@ const notes = allNotes.sort((a: CollectionEntry<'notes'>, b: CollectionEntry<'no
     </p>
   </header>
 
-  <div>
-    {notes.length === 0 ? (
-      <p class="py-8 text-neutral-500 dark:text-neutral-400 text-sm">
-        Nothing published yet. Check back soon.
-      </p>
-    ) : (
-      notes.map((note) => (
-        <NoteCard
-          title={note.data.title}
-          description={note.data.description}
-          href={`/notes/${note.id.replace(/\.mdx?$/, '')}`}
-          publishedAt={note.data.publishedAt}
-          kind={note.data.kind}
-          tags={note.data.tags}
-        />
-      ))
-    )}
-  </div>
+  {notes.length === 0 ? (
+    <p class="py-8 text-neutral-500 dark:text-neutral-400 text-sm">
+      Nothing published yet. Check back soon.
+    </p>
+  ) : (
+    <>
+      {pinned.length > 0 && (
+        <div class="mb-8">
+          <h2 class="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400 mb-2">
+            Pinned
+          </h2>
+          <div>
+            {pinned.map((note: CollectionEntry<'notes'>) => (
+              <NoteCard
+                title={note.data.title}
+                description={note.data.description}
+                href={`/notes/${note.id.replace(/\.mdx?$/, '')}`}
+                publishedAt={note.data.publishedAt}
+                kind={note.data.kind}
+                tags={note.data.tags}
+                pinned
+              />
+            ))}
+          </div>
+        </div>
+      )}
+      <div>
+        {rest.map((note: CollectionEntry<'notes'>) => (
+          <NoteCard
+            title={note.data.title}
+            description={note.data.description}
+            href={`/notes/${note.id.replace(/\.mdx?$/, '')}`}
+            publishedAt={note.data.publishedAt}
+            kind={note.data.kind}
+            tags={note.data.tags}
+          />
+        ))}
+      </div>
+    </>
+  )}
 </PageLayout>
